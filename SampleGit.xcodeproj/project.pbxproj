@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B440F3DE25B6227700B756BF /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440F3DD25B6227700B756BF /* Config.swift */; };
+		B440F3E125B6229700B756BF /* WSResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440F3E025B6229700B756BF /* WSResponse.swift */; };
+		B440F3E325B622A500B756BF /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440F3E225B622A500B756BF /* APIRouter.swift */; };
+		B440F3E525B622AF00B756BF /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440F3E425B622AF00B756BF /* APIClient.swift */; };
+		B440F3E725B622B600B756BF /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440F3E625B622B600B756BF /* APIProvider.swift */; };
+		B440F3EA25B626E400B756BF /* FilteredRepositoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440F3E925B626E400B756BF /* FilteredRepositoryList.swift */; };
+		B440F3EE25B62B1300B756BF /* UserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440F3ED25B62B1300B756BF /* UserDetail.swift */; };
+		B440F3F225B62C5200B756BF /* RepositoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440F3F125B62C5200B756BF /* RepositoryDetail.swift */; };
 		B4C12ABC25B61A7C00E19D96 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B4C12ABB25B61A7C00E19D96 /* Alamofire */; };
 		B4C12AC325B61BC600E19D96 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C12AC225B61BC600E19D96 /* AppRouter.swift */; };
 		B4C12ACC25B61CEE00E19D96 /* SearchRepositoriesContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C12AC625B61CEE00E19D96 /* SearchRepositoriesContract.swift */; };
@@ -22,6 +30,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B440F3DD25B6227700B756BF /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		B440F3E025B6229700B756BF /* WSResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSResponse.swift; sourceTree = "<group>"; };
+		B440F3E225B622A500B756BF /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
+		B440F3E425B622AF00B756BF /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		B440F3E625B622B600B756BF /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
+		B440F3E925B626E400B756BF /* FilteredRepositoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredRepositoryList.swift; sourceTree = "<group>"; };
+		B440F3ED25B62B1300B756BF /* UserDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetail.swift; sourceTree = "<group>"; };
+		B440F3F125B62C5200B756BF /* RepositoryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetail.swift; sourceTree = "<group>"; };
 		B4C12AC225B61BC600E19D96 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		B4C12AC625B61CEE00E19D96 /* SearchRepositoriesContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesContract.swift; sourceTree = "<group>"; };
 		B4C12AC725B61CEE00E19D96 /* SearchRepositoriesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesPresenter.swift; sourceTree = "<group>"; };
@@ -49,6 +65,74 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B440F3DB25B6225600B756BF /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B440F3DC25B6226E00B756BF /* Config */,
+				B440F3DF25B6228000B756BF /* CommonResponse */,
+				B440F3E225B622A500B756BF /* APIRouter.swift */,
+				B440F3E425B622AF00B756BF /* APIClient.swift */,
+				B440F3E625B622B600B756BF /* APIProvider.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		B440F3DC25B6226E00B756BF /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				B440F3DD25B6227700B756BF /* Config.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		B440F3DF25B6228000B756BF /* CommonResponse */ = {
+			isa = PBXGroup;
+			children = (
+				B440F3E025B6229700B756BF /* WSResponse.swift */,
+			);
+			path = CommonResponse;
+			sourceTree = "<group>";
+		};
+		B440F3E825B626AA00B756BF /* Response Class */ = {
+			isa = PBXGroup;
+			children = (
+				B440F3E925B626E400B756BF /* FilteredRepositoryList.swift */,
+			);
+			path = "Response Class";
+			sourceTree = "<group>";
+		};
+		B440F3EB25B62AF800B756BF /* User Detail */ = {
+			isa = PBXGroup;
+			children = (
+				B440F3EC25B62B0100B756BF /* Response Class */,
+			);
+			path = "User Detail";
+			sourceTree = "<group>";
+		};
+		B440F3EC25B62B0100B756BF /* Response Class */ = {
+			isa = PBXGroup;
+			children = (
+				B440F3ED25B62B1300B756BF /* UserDetail.swift */,
+			);
+			path = "Response Class";
+			sourceTree = "<group>";
+		};
+		B440F3EF25B62C3B00B756BF /* Repository Detail */ = {
+			isa = PBXGroup;
+			children = (
+				B440F3F025B62C4700B756BF /* Response Class */,
+			);
+			path = "Repository Detail";
+			sourceTree = "<group>";
+		};
+		B440F3F025B62C4700B756BF /* Response Class */ = {
+			isa = PBXGroup;
+			children = (
+				B440F3F125B62C5200B756BF /* RepositoryDetail.swift */,
+			);
+			path = "Response Class";
+			sourceTree = "<group>";
+		};
 		B4C12ABE25B61AB600E19D96 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				B4C12AC425B61CC900E19D96 /* SearchRepositories */,
+				B440F3EF25B62C3B00B756BF /* Repository Detail */,
+				B440F3EB25B62AF800B756BF /* User Detail */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -86,6 +172,7 @@
 		B4C12AC425B61CC900E19D96 /* SearchRepositories */ = {
 			isa = PBXGroup;
 			children = (
+				B440F3E825B626AA00B756BF /* Response Class */,
 				B4C12AC625B61CEE00E19D96 /* SearchRepositoriesContract.swift */,
 				B4C12AC725B61CEE00E19D96 /* SearchRepositoriesPresenter.swift */,
 				B4C12AC825B61CEE00E19D96 /* SearchRepositoriesRouter.swift */,
@@ -125,6 +212,7 @@
 			children = (
 				B4C12ABE25B61AB600E19D96 /* Application */,
 				B4C12AC025B61B9A00E19D96 /* Modules */,
+				B440F3DB25B6225600B756BF /* Network */,
 				B4C12AD125B61DB600E19D96 /* Commons */,
 				B4C12ABF25B61B5700E19D96 /* Supporting Files */,
 				B4C12AC125B61BA800E19D96 /* Resources */,
@@ -209,6 +297,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B440F3EA25B626E400B756BF /* FilteredRepositoryList.swift in Sources */,
+				B440F3E125B6229700B756BF /* WSResponse.swift in Sources */,
+				B440F3E325B622A500B756BF /* APIRouter.swift in Sources */,
 				B4C12ACF25B61CEE00E19D96 /* SearchRepositoriesViewController.swift in Sources */,
 				B4C12ACE25B61CEE00E19D96 /* SearchRepositoriesRouter.swift in Sources */,
 				B4C12AD525B61DF000E19D96 /* LoadingManager.swift in Sources */,
@@ -216,6 +307,11 @@
 				B4F4D73F25B617E000334958 /* AppDelegate.swift in Sources */,
 				B4C12ACC25B61CEE00E19D96 /* SearchRepositoriesContract.swift in Sources */,
 				B4C12AD025B61CEE00E19D96 /* SearchRepositoriesInteractor.swift in Sources */,
+				B440F3F225B62C5200B756BF /* RepositoryDetail.swift in Sources */,
+				B440F3E725B622B600B756BF /* APIProvider.swift in Sources */,
+				B440F3E525B622AF00B756BF /* APIClient.swift in Sources */,
+				B440F3DE25B6227700B756BF /* Config.swift in Sources */,
+				B440F3EE25B62B1300B756BF /* UserDetail.swift in Sources */,
 				B4C12AD325B61DCA00E19D96 /* BaseContract.swift in Sources */,
 				B4C12AC325B61BC600E19D96 /* AppRouter.swift in Sources */,
 			);
