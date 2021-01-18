@@ -44,8 +44,7 @@ struct OwnerClass: Codable {
 
 // MARK: - Commit
 struct Commit: Codable {
-    let author: String?
-    let message: String?
+    let author, message: String?
     let comitter: CommitterClass
 
     enum CodingKeys: String, CodingKey {
@@ -64,8 +63,7 @@ struct Repository: Codable {
     let id: Int?
     let name, fullName: String?
     let owner: OwnerClass?
-    let repositoryDescription: String?
-    let url: String?
+    let repositoryDescription, url: String?
 
     enum CodingKeys: String, CodingKey {
         case fullName = "full_name"

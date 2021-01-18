@@ -7,35 +7,27 @@
 //
 
 import Foundation
-// repo name owner username avatar email fork count language default branch name
+
 class RepositoryDetail: Codable {
-    let id: Int?
+    let id, forksCount, size: Int?
     let name, fullName, welcomeDescription: String?
     let owner: Owner?
     let fork: Bool?
-    let url, cloneURL, homepage: String?
-    let language: String?
-    let forksCount, size: Int?
-    let defaultBranch: String?
-    let openIssuesCount: Int
+    let url, cloneURL, defaultBranch, homepage, language: String?
     let createdAt: Date?
-    let forks, watchers, openIssues: Int?
+    let openIssuesCount, forks, watchers, openIssues: Int?
     let license: License?
-    let tempCloneToken: String?
 
     enum CodingKeys: String, CodingKey {
-        case id, name, owner
         case fullName = "full_name"
         case welcomeDescription = "description"
-        case fork, url, size, homepage, language
         case cloneURL = "clone_url"
         case forksCount = "forks_count"
         case defaultBranch = "default_branch"
         case openIssuesCount = "open_issues_count"
         case createdAt = "created_at"
-        case forks, watchers, license
         case openIssues = "open_issues"
-        case tempCloneToken = "temp_clone_token"
+        case id, name, owner, fork, url, size, homepage, language, forks, watchers, license
     }
 }
 
@@ -51,12 +43,11 @@ struct License: Codable {
 // MARK: - Owner
 struct Owner: Codable {
     let id: Int?
-    let avatarURL, gravatarID: String?
-    let url: String?
+    let url, avatarURL, gravatarID: String?
 
     enum CodingKeys: String, CodingKey {
-        case id, url
         case avatarURL = "avatar_url"
         case gravatarID = "gravatar_id"
+        case id, url
     }
 }
