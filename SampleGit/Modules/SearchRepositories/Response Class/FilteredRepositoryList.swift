@@ -8,66 +8,44 @@
 
 import Foundation
 
-// MARK: - FilteredRepositoryList
-struct FilteredRepositoryList: Codable {
-    let totalCount: Int?
-    let incompleteResults: Bool?
-    let items: [Item]?
-
-    enum CodingKeys: String, CodingKey {
-        case totalCount = "total_count"
-        case incompleteResults = "incomplete_results"
-        case items
-    }
-}
-
-// MARK: - Item
-struct Item: Codable {
-    let author: OwnerClass?
-    let repository: Repository?
-
-    enum CodingKeys: String, CodingKey {
-        case author, repository
-    }
-}
-
-// MARK: - OwnerClass
-struct OwnerClass: Codable {
-    let id: Int?
-    let avatarURL: String?
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case avatarURL = "avatar_url"
-    }
-}
-
-// MARK: - Commit
-struct Commit: Codable {
-    let author, message: String?
-    let comitter: CommitterClass
-
-    enum CodingKeys: String, CodingKey {
-        case author, message, comitter
-    }
-}
-
-// MARK: - CommitterClass
-struct CommitterClass: Codable {
-    let date: Date?
-    let name, email: String?
+// MARK: - RepositoryList
+struct RepositoryList: Codable {
+    let items: [Repository]?
 }
 
 // MARK: - Repository
 struct Repository: Codable {
-    let id: Int?
-    let name, fullName: String?
-    let owner: OwnerClass?
-    let repositoryDescription, url: String?
+    let name: String?
+    let score: Double?
+    let forkCount: Int?
+    let watcherCount: Int?
+    let starCount: Int?
+    let issuesCount: Int?
+    let language: String?
+    let repoDescription: String?
+    let owner: RepoOwner?
+    let repoUrl: String?
 
     enum CodingKeys: String, CodingKey {
-        case fullName = "full_name"
-        case repositoryDescription = "description"
-        case id, name, owner, url
+        case name, score, language, owner
+        case forkCount = "forks_count"
+        case watcherCount = "watchers_count"
+        case starCount = "startgazers_count"
+        case issuesCount = "open_issues_count"
+        case repoDescription = "description"
+        case repoUrl = "html_url"
+    }
+}
+
+// MARK: - RepoOwner
+struct RepoOwner: Codable {
+    let avatarUrl: String?
+    let type: String?
+    let name: String?
+
+    enum CodingKeys: String, CodingKey {
+        case avatarUrl = "avatar_url"
+        case name = "login"
+        case type
     }
 }

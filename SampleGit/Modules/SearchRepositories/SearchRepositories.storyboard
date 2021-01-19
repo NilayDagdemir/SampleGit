@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="d8s-zC-T2t">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search Repositories View Controller-->
+        <scene sceneID="4e3-xv-bDR">
+            <objects>
+                <viewController storyboardIdentifier="SearchRepositories" useStoryboardIdentifierAsRestorationIdentifier="YES" id="d8s-zC-T2t" customClass="SearchRepositoriesViewController" customModule="SampleGit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wT6-ai-9nW"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fue-mU-seb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IFj-I9-EFs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SZu-DX-Bl1" userLabel="Filtered Repositories Table View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <color key="backgroundColor" name="pale_grey"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="d8s-zC-T2t" id="Luw-ez-D8G"/>
+                                    <outlet property="delegate" destination="d8s-zC-T2t" id="YGZ-Lw-NAv"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="SZu-DX-Bl1" secondAttribute="bottom" id="EEc-IF-R7g"/>
+                            <constraint firstItem="SZu-DX-Bl1" firstAttribute="top" secondItem="IFj-I9-EFs" secondAttribute="top" id="Jzs-fU-Ri0"/>
+                            <constraint firstAttribute="trailing" secondItem="SZu-DX-Bl1" secondAttribute="trailing" id="mco-np-Cmq"/>
+                            <constraint firstItem="SZu-DX-Bl1" firstAttribute="leading" secondItem="IFj-I9-EFs" secondAttribute="leading" id="rWD-yD-B33"/>
+                            <constraint firstItem="SZu-DX-Bl1" firstAttribute="centerX" secondItem="IFj-I9-EFs" secondAttribute="centerX" id="uhv-5r-J2e"/>
+                            <constraint firstItem="SZu-DX-Bl1" firstAttribute="centerY" secondItem="IFj-I9-EFs" secondAttribute="centerY" id="xlP-C4-nwR"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="i2Z-2f-Val"/>
+                    <connections>
+                        <outlet property="filteredRepositoriesTableView" destination="SZu-DX-Bl1" id="zPy-S6-4tU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iqd-wc-fRj" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-63.200000000000003" y="82.758620689655174"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="pale_grey">
+            <color red="0.97299998998641968" green="0.97600001096725464" blue="0.98400002717971802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

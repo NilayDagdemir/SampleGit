@@ -38,3 +38,7 @@ protocol IBasePresenter: class {
 protocol IBaseInteractorToPresenter: class {
     func wsErrorOccurred(with message: String)
 }
+
+protocol IBaseAdapter: class {
+    func itemCount() -> Int
+}

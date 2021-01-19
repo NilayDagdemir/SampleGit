@@ -15,15 +15,30 @@
 		B440F3EA25B626E400B756BF /* FilteredRepositoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440F3E925B626E400B756BF /* FilteredRepositoryList.swift */; };
 		B440F3EE25B62B1300B756BF /* UserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440F3ED25B62B1300B756BF /* UserDetail.swift */; };
 		B440F3F225B62C5200B756BF /* RepositoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440F3F125B62C5200B756BF /* RepositoryDetail.swift */; };
+		B461768C25B79328005F77EC /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461768B25B79328005F77EC /* UITableView+Ext.swift */; };
+		B461768E25B7980F005F77EC /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461768D25B7980F005F77EC /* UIViewController+Ext.swift */; };
 		B4C12ABC25B61A7C00E19D96 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B4C12ABB25B61A7C00E19D96 /* Alamofire */; };
 		B4C12AC325B61BC600E19D96 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C12AC225B61BC600E19D96 /* AppRouter.swift */; };
-		B4C12ACC25B61CEE00E19D96 /* SearchRepositoriesContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C12AC625B61CEE00E19D96 /* SearchRepositoriesContract.swift */; };
-		B4C12ACD25B61CEE00E19D96 /* SearchRepositoriesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C12AC725B61CEE00E19D96 /* SearchRepositoriesPresenter.swift */; };
-		B4C12ACE25B61CEE00E19D96 /* SearchRepositoriesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C12AC825B61CEE00E19D96 /* SearchRepositoriesRouter.swift */; };
-		B4C12ACF25B61CEE00E19D96 /* SearchRepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C12AC925B61CEE00E19D96 /* SearchRepositoriesViewController.swift */; };
-		B4C12AD025B61CEE00E19D96 /* SearchRepositoriesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C12ACA25B61CEE00E19D96 /* SearchRepositoriesInteractor.swift */; };
 		B4C12AD325B61DCA00E19D96 /* BaseContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C12AD225B61DCA00E19D96 /* BaseContract.swift */; };
 		B4C12AD525B61DF000E19D96 /* LoadingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C12AD425B61DF000E19D96 /* LoadingManager.swift */; };
+		B4D65AC525B74FA00077E55F /* UIStoryboard+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D65AC425B74FA00077E55F /* UIStoryboard+Ext.swift */; };
+		B4D65ACC25B7502B0077E55F /* SearchRepositories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4D65AC625B7502B0077E55F /* SearchRepositories.storyboard */; };
+		B4D65ACD25B7502B0077E55F /* SearchRepositoriesContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D65AC725B7502B0077E55F /* SearchRepositoriesContract.swift */; };
+		B4D65ACE25B7502B0077E55F /* SearchRepositoriesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D65AC825B7502B0077E55F /* SearchRepositoriesPresenter.swift */; };
+		B4D65ACF25B7502B0077E55F /* SearchRepositoriesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D65AC925B7502B0077E55F /* SearchRepositoriesRouter.swift */; };
+		B4D65AD025B7502B0077E55F /* SearchRepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D65ACA25B7502B0077E55F /* SearchRepositoriesViewController.swift */; };
+		B4D65AD125B7502B0077E55F /* SearchRepositoriesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D65ACB25B7502B0077E55F /* SearchRepositoriesInteractor.swift */; };
+		B4D65AD325B750B10077E55F /* StoryboardLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D65AD225B750B10077E55F /* StoryboardLoadable.swift */; };
+		B4D65AD525B753310077E55F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D65AD425B753310077E55F /* BaseViewController.swift */; };
+		B4D65AD725B7567B0077E55F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D65AD625B7567B0077E55F /* Constants.swift */; };
+		B4D65ADB25B75ADF0077E55F /* SearchRepositoriesTableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D65ADA25B75ADF0077E55F /* SearchRepositoriesTableViewAdapter.swift */; };
+		B4D65AE025B75BB60077E55F /* RepoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D65ADE25B75BB60077E55F /* RepoTableViewCell.swift */; };
+		B4D65AE125B75BB60077E55F /* RepoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4D65ADF25B75BB60077E55F /* RepoTableViewCell.xib */; };
+		B4D65AE325B75D220077E55F /* NSObject+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D65AE225B75D220077E55F /* NSObject+Ext.swift */; };
+		B4D65AE525B760780077E55F /* ImageDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D65AE425B760780077E55F /* ImageDownloadManager.swift */; };
+		B4D65AE825B762680077E55F /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B4D65AE725B762680077E55F /* SDWebImage */; };
+		B4D65AEA25B763C20077E55F /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D65AE925B763C20077E55F /* String+Ext.swift */; };
+		B4D65AEC25B7666D0077E55F /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D65AEB25B7666D0077E55F /* UIColor+Ext.swift */; };
 		B4F4D73F25B617E000334958 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F4D73E25B617E000334958 /* AppDelegate.swift */; };
 		B4F4D74825B617E000334958 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4F4D74725B617E000334958 /* Assets.xcassets */; };
 		B4F4D74B25B617E000334958 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4F4D74925B617E000334958 /* LaunchScreen.storyboard */; };
@@ -38,14 +53,28 @@
 		B440F3E925B626E400B756BF /* FilteredRepositoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredRepositoryList.swift; sourceTree = "<group>"; };
 		B440F3ED25B62B1300B756BF /* UserDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetail.swift; sourceTree = "<group>"; };
 		B440F3F125B62C5200B756BF /* RepositoryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetail.swift; sourceTree = "<group>"; };
+		B461768B25B79328005F77EC /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
+		B461768D25B7980F005F77EC /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		B4C12AC225B61BC600E19D96 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
-		B4C12AC625B61CEE00E19D96 /* SearchRepositoriesContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesContract.swift; sourceTree = "<group>"; };
-		B4C12AC725B61CEE00E19D96 /* SearchRepositoriesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesPresenter.swift; sourceTree = "<group>"; };
-		B4C12AC825B61CEE00E19D96 /* SearchRepositoriesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesRouter.swift; sourceTree = "<group>"; };
-		B4C12AC925B61CEE00E19D96 /* SearchRepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesViewController.swift; sourceTree = "<group>"; };
-		B4C12ACA25B61CEE00E19D96 /* SearchRepositoriesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesInteractor.swift; sourceTree = "<group>"; };
 		B4C12AD225B61DCA00E19D96 /* BaseContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContract.swift; sourceTree = "<group>"; };
 		B4C12AD425B61DF000E19D96 /* LoadingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingManager.swift; sourceTree = "<group>"; };
+		B4D65AC425B74FA00077E55F /* UIStoryboard+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Ext.swift"; sourceTree = "<group>"; };
+		B4D65AC625B7502B0077E55F /* SearchRepositories.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchRepositories.storyboard; sourceTree = "<group>"; };
+		B4D65AC725B7502B0077E55F /* SearchRepositoriesContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesContract.swift; sourceTree = "<group>"; };
+		B4D65AC825B7502B0077E55F /* SearchRepositoriesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesPresenter.swift; sourceTree = "<group>"; };
+		B4D65AC925B7502B0077E55F /* SearchRepositoriesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesRouter.swift; sourceTree = "<group>"; };
+		B4D65ACA25B7502B0077E55F /* SearchRepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesViewController.swift; sourceTree = "<group>"; };
+		B4D65ACB25B7502B0077E55F /* SearchRepositoriesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesInteractor.swift; sourceTree = "<group>"; };
+		B4D65AD225B750B10077E55F /* StoryboardLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardLoadable.swift; sourceTree = "<group>"; };
+		B4D65AD425B753310077E55F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		B4D65AD625B7567B0077E55F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B4D65ADA25B75ADF0077E55F /* SearchRepositoriesTableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesTableViewAdapter.swift; sourceTree = "<group>"; };
+		B4D65ADE25B75BB60077E55F /* RepoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoTableViewCell.swift; sourceTree = "<group>"; };
+		B4D65ADF25B75BB60077E55F /* RepoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoTableViewCell.xib; sourceTree = "<group>"; };
+		B4D65AE225B75D220077E55F /* NSObject+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Ext.swift"; sourceTree = "<group>"; };
+		B4D65AE425B760780077E55F /* ImageDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadManager.swift; sourceTree = "<group>"; };
+		B4D65AE925B763C20077E55F /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		B4D65AEB25B7666D0077E55F /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		B4F4D73B25B617E000334958 /* SampleGit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleGit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4F4D73E25B617E000334958 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4F4D74725B617E000334958 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4D65AE825B762680077E55F /* SDWebImage in Frameworks */,
 				B4C12ABC25B61A7C00E19D96 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,12 +202,14 @@
 		B4C12AC425B61CC900E19D96 /* SearchRepositories */ = {
 			isa = PBXGroup;
 			children = (
+				B4D65AD825B75AB60077E55F /* SearchRepositoriesTableViewAdapter */,
 				B440F3E825B626AA00B756BF /* Response Class */,
-				B4C12AC625B61CEE00E19D96 /* SearchRepositoriesContract.swift */,
-				B4C12AC725B61CEE00E19D96 /* SearchRepositoriesPresenter.swift */,
-				B4C12AC825B61CEE00E19D96 /* SearchRepositoriesRouter.swift */,
-				B4C12AC925B61CEE00E19D96 /* SearchRepositoriesViewController.swift */,
-				B4C12ACA25B61CEE00E19D96 /* SearchRepositoriesInteractor.swift */,
+				B4D65AC625B7502B0077E55F /* SearchRepositories.storyboard */,
+				B4D65AC725B7502B0077E55F /* SearchRepositoriesContract.swift */,
+				B4D65AC825B7502B0077E55F /* SearchRepositoriesPresenter.swift */,
+				B4D65AC925B7502B0077E55F /* SearchRepositoriesRouter.swift */,
+				B4D65ACA25B7502B0077E55F /* SearchRepositoriesViewController.swift */,
+				B4D65ACB25B7502B0077E55F /* SearchRepositoriesInteractor.swift */,
 			);
 			path = SearchRepositories;
 			sourceTree = "<group>";
@@ -185,10 +217,52 @@
 		B4C12AD125B61DB600E19D96 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				B4D65AD625B7567B0077E55F /* Constants.swift */,
 				B4C12AD225B61DCA00E19D96 /* BaseContract.swift */,
 				B4C12AD425B61DF000E19D96 /* LoadingManager.swift */,
+				B4D65AD425B753310077E55F /* BaseViewController.swift */,
+				B4D65AE425B760780077E55F /* ImageDownloadManager.swift */,
 			);
 			path = Commons;
+			sourceTree = "<group>";
+		};
+		B4D65AC325B74F8D0077E55F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B4D65AC425B74FA00077E55F /* UIStoryboard+Ext.swift */,
+				B4D65AD225B750B10077E55F /* StoryboardLoadable.swift */,
+				B4D65AE225B75D220077E55F /* NSObject+Ext.swift */,
+				B4D65AE925B763C20077E55F /* String+Ext.swift */,
+				B4D65AEB25B7666D0077E55F /* UIColor+Ext.swift */,
+				B461768B25B79328005F77EC /* UITableView+Ext.swift */,
+				B461768D25B7980F005F77EC /* UIViewController+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B4D65AD825B75AB60077E55F /* SearchRepositoriesTableViewAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				B4D65AD925B75AC20077E55F /* Cells */,
+				B4D65ADA25B75ADF0077E55F /* SearchRepositoriesTableViewAdapter.swift */,
+			);
+			path = SearchRepositoriesTableViewAdapter;
+			sourceTree = "<group>";
+		};
+		B4D65AD925B75AC20077E55F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B4D65ADE25B75BB60077E55F /* RepoTableViewCell.swift */,
+				B4D65ADF25B75BB60077E55F /* RepoTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B4D65AE625B762680077E55F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		B4F4D73225B617E000334958 = {
@@ -196,6 +270,7 @@
 			children = (
 				B4F4D73D25B617E000334958 /* SampleGit */,
 				B4F4D73C25B617E000334958 /* Products */,
+				B4D65AE625B762680077E55F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -213,6 +288,7 @@
 				B4C12ABE25B61AB600E19D96 /* Application */,
 				B4C12AC025B61B9A00E19D96 /* Modules */,
 				B440F3DB25B6225600B756BF /* Network */,
+				B4D65AC325B74F8D0077E55F /* Extensions */,
 				B4C12AD125B61DB600E19D96 /* Commons */,
 				B4C12ABF25B61B5700E19D96 /* Supporting Files */,
 				B4C12AC125B61BA800E19D96 /* Resources */,
@@ -238,6 +314,7 @@
 			name = SampleGit;
 			packageProductDependencies = (
 				B4C12ABB25B61A7C00E19D96 /* Alamofire */,
+				B4D65AE725B762680077E55F /* SDWebImage */,
 			);
 			productName = SampleGit;
 			productReference = B4F4D73B25B617E000334958 /* SampleGit.app */;
@@ -285,8 +362,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4D65ACC25B7502B0077E55F /* SearchRepositories.storyboard in Resources */,
 				B4F4D74B25B617E000334958 /* LaunchScreen.storyboard in Resources */,
 				B4F4D74825B617E000334958 /* Assets.xcassets in Resources */,
+				B4D65AE125B75BB60077E55F /* RepoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,20 +378,32 @@
 			files = (
 				B440F3EA25B626E400B756BF /* FilteredRepositoryList.swift in Sources */,
 				B440F3E125B6229700B756BF /* WSResponse.swift in Sources */,
+				B4D65AE025B75BB60077E55F /* RepoTableViewCell.swift in Sources */,
 				B440F3E325B622A500B756BF /* APIRouter.swift in Sources */,
-				B4C12ACF25B61CEE00E19D96 /* SearchRepositoriesViewController.swift in Sources */,
-				B4C12ACE25B61CEE00E19D96 /* SearchRepositoriesRouter.swift in Sources */,
 				B4C12AD525B61DF000E19D96 /* LoadingManager.swift in Sources */,
-				B4C12ACD25B61CEE00E19D96 /* SearchRepositoriesPresenter.swift in Sources */,
 				B4F4D73F25B617E000334958 /* AppDelegate.swift in Sources */,
-				B4C12ACC25B61CEE00E19D96 /* SearchRepositoriesContract.swift in Sources */,
-				B4C12AD025B61CEE00E19D96 /* SearchRepositoriesInteractor.swift in Sources */,
+				B4D65AD525B753310077E55F /* BaseViewController.swift in Sources */,
 				B440F3F225B62C5200B756BF /* RepositoryDetail.swift in Sources */,
+				B4D65ACD25B7502B0077E55F /* SearchRepositoriesContract.swift in Sources */,
+				B4D65AD325B750B10077E55F /* StoryboardLoadable.swift in Sources */,
 				B440F3E725B622B600B756BF /* APIProvider.swift in Sources */,
+				B4D65AD125B7502B0077E55F /* SearchRepositoriesInteractor.swift in Sources */,
+				B4D65AD725B7567B0077E55F /* Constants.swift in Sources */,
+				B4D65ACF25B7502B0077E55F /* SearchRepositoriesRouter.swift in Sources */,
 				B440F3E525B622AF00B756BF /* APIClient.swift in Sources */,
+				B4D65AEC25B7666D0077E55F /* UIColor+Ext.swift in Sources */,
 				B440F3DE25B6227700B756BF /* Config.swift in Sources */,
+				B4D65AEA25B763C20077E55F /* String+Ext.swift in Sources */,
+				B4D65ACE25B7502B0077E55F /* SearchRepositoriesPresenter.swift in Sources */,
+				B4D65AE325B75D220077E55F /* NSObject+Ext.swift in Sources */,
+				B4D65AE525B760780077E55F /* ImageDownloadManager.swift in Sources */,
+				B4D65AC525B74FA00077E55F /* UIStoryboard+Ext.swift in Sources */,
+				B4D65ADB25B75ADF0077E55F /* SearchRepositoriesTableViewAdapter.swift in Sources */,
 				B440F3EE25B62B1300B756BF /* UserDetail.swift in Sources */,
+				B4D65AD025B7502B0077E55F /* SearchRepositoriesViewController.swift in Sources */,
+				B461768C25B79328005F77EC /* UITableView+Ext.swift in Sources */,
 				B4C12AD325B61DCA00E19D96 /* BaseContract.swift in Sources */,
+				B461768E25B7980F005F77EC /* UIViewController+Ext.swift in Sources */,
 				B4C12AC325B61BC600E19D96 /* AppRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,7 +543,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YNMJNLXZ67;
 				INFOPLIST_FILE = "SampleGit/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -471,7 +562,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YNMJNLXZ67;
 				INFOPLIST_FILE = "SampleGit/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -530,6 +621,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B4C12ABA25B61A7C00E19D96 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		B4D65AE725B762680077E55F /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B4C12ABD25B61AA600E19D96 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

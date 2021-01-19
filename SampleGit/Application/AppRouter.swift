@@ -16,9 +16,10 @@ open class AppRouter {
 
     func start() {
         let viewController = SearchRepositoriesRouter.setupModule()
-
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.navigationBar.barTintColor = .paleGrey
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = viewController
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 }

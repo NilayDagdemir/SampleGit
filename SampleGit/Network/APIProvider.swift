@@ -43,10 +43,10 @@ class APIProvider: NSObject {
                     onSuccess?(WSResponse(requestResponse.value))
                 case .failure:
                     guard let onError = onError else {
-                        onSuccess?(WSResponse(nil, nil))
+                        onSuccess?(WSResponse(nil))
                         return
                     }
-
+                    print("here res is: \(requestResponse) and route: \(route)")
                     let statusCode = requestResponse.response?.statusCode ?? 500
                     if statusCode < 500 {
                         //Client type errors, cast body to Error Class

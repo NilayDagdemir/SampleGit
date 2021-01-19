@@ -8,18 +8,18 @@
 
 import Foundation
 
-// MARK: - TMDBWebServiceResponse
+// MARK: - GitAPIServiceResponse
 struct WSResponse<T: Decodable> {
-    let results: T?
-    let error: WSError?
+    let items: T?
+//    let error: WSError?
 
-    init(_ results: T? = nil, _ error: WSError? = nil) {
-        self.results = results
-        self.error = error
+    init(_ items: T? = nil) {
+        self.items = items
+//        self.error = error
     }
 }
 
-// MARK: - TMDBWebServiceError
+// MARK: - GitAPIServiceError
 struct WSError: Codable {
     let statusCode: Int?
     let statusMessage: String?

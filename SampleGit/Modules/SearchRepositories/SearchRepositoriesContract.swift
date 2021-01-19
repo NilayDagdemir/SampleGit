@@ -2,28 +2,38 @@
 //  SearchRepositoriesContract.swift
 //  SampleGit
 //
-//  Created by Eda Nilay DAĞDEMİR on 18.01.2021.
+//  Created by Eda Nilay DAĞDEMİR on 19.01.2021.
 //  Copyright © 2021 Eda Nilay DAĞDEMİR. All rights reserved.
 //
 
 import Foundation
 
+protocol RepoTableViewCellDelegate: AnyObject {
+    func avatarClicked(with repoItem: Repository)
+    func repoCardClicked(with repoItem: Repository)
+}
+
 protocol ISearchRepositoriesView: IBaseView {
-    // TODO: Declare view methods
+    func reloadTableView()
+    func closeSearchBar()
 }
 
 protocol ISearchRepositoriesPresenter: IBasePresenter {
-    // TODO: Declare presentation methods
+    func filterItems(with searchText: String, _ pageNumber: Int)
+    func getFilteredRepos() -> [Repository]
+    func repoCardClicked(with repoItem: Repository)
+    func avatarClicked(with repoItem: Repository)
 }
 
 protocol ISearchRepositoriesInteractor: class {
-    // TODO: Declare use case methods
+    func searchRepos(with searchText: String, perPage: Int, pageNumber: Int)
 }
 
 protocol ISearchRepositoriesInteractorToPresenter: IBaseInteractorToPresenter {
-    // TODO: Declare interactor output methods
+    func repoListFiltered(_ repoList: [Repository])
 }
 
 protocol ISearchRepositoriesRouter: class {
-    // TODO: Declare wireframe methods
+    func navigateToRepoDetailScreen(of repoItem: Repository)
+    func navigateToUserDetailScreen(of repoItem: Repository)
 }
