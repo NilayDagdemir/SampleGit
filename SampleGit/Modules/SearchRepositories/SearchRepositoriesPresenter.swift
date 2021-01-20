@@ -6,7 +6,7 @@
 //  Copyright © 2021 Eda Nilay DAĞDEMİR. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class SearchRepositoriesPresenter {
 
@@ -15,7 +15,9 @@ class SearchRepositoriesPresenter {
     var router: ISearchRepositoriesRouter?
     var interactor: ISearchRepositoriesInteractor?
 
-    private var filteredRepos = [Repository]()
+    private var filteredRepos: [Repository] = [Repository]()
+    private var latestSearchText: String = ""
+    private var currentPage: Int = 1
 }
 
 extension SearchRepositoriesPresenter: ISearchRepositoriesPresenter {
@@ -24,8 +26,8 @@ extension SearchRepositoriesPresenter: ISearchRepositoriesPresenter {
     func filterItems(with searchText: String, _ pageNumber: Int) {
         view?.closeSearchBar()
         if searchText != "" {
-            view?.showProgressHUD()
-            interactor?.searchRepos(with: searchText, perPage: Constants.SearchRepositories.filteredItemCountPerPage, pageNumber: pageNumber)
+            latestSearchText = searchText
+            fetchData()
         }
     }
 
@@ -33,12 +35,29 @@ extension SearchRepositoriesPresenter: ISearchRepositoriesPresenter {
         return filteredRepos
     }
 
-    func repoCardClicked(with repoItem: Repository) {
-        router?.navigateToRepoDetailScreen(of: repoItem)
+    func itemExistsOnTableView() -> Bool {
+        return !(filteredRepos.isEmpty)
     }
 
-    func avatarClicked(with repoItem: Repository) {
-        router?.navigateToUserDetailScreen(of: repoItem)
+    func repoCardClicked(with repoItem: Repository) {
+        router?.navigateToRepoDetailScreen(with: repoItem)
+    }
+
+    func avatarClicked(with userName: String, _ repoName: String) {
+        router?.navigateToUserDetailScreen(with: userName, repoName)
+    }
+
+    func scrollViewDidScrollTriggered(with scrollPosition: CGFloat) {
+        view?.scrollViewScrolled(with: scrollPosition)
+    }
+
+    func fetchData() {
+        print("here w search text: \(latestSearchText)")
+        if latestSearchText != "" {
+            view?.showProgressHUD()
+            print("here to fetch!")
+            interactor?.searchRepos(with: latestSearchText, perPage: Constants.SearchRepositories.filteredItemCountPerPage, pageNumber: currentPage)
+        }
     }
 }
 
@@ -50,6 +69,7 @@ extension SearchRepositoriesPresenter: ISearchRepositoriesInteractorToPresenter 
 
     func repoListFiltered(_ repoList: [Repository]) {
         self.filteredRepos = repoList
+        currentPage += 1
         view?.hideProgressHUD()
         view?.reloadTableView()
         if filteredRepos.isEmpty {

@@ -16,7 +16,7 @@ struct RepositoryList: Codable {
 // MARK: - Repository
 struct Repository: Codable {
     let name: String?
-    let score: Double?
+    let defaultBranch: String?
     let forkCount: Int?
     let watcherCount: Int?
     let starCount: Int?
@@ -27,7 +27,8 @@ struct Repository: Codable {
     let repoUrl: String?
 
     enum CodingKeys: String, CodingKey {
-        case name, score, language, owner
+        case name, language, owner
+        case defaultBranch = "default_branch"
         case forkCount = "forks_count"
         case watcherCount = "watchers_count"
         case starCount = "startgazers_count"
@@ -42,7 +43,7 @@ struct RepoOwner: Codable {
     let avatarUrl: String?
     let type: String?
     let name: String?
-
+    //add email, maybe?
     enum CodingKeys: String, CodingKey {
         case avatarUrl = "avatar_url"
         case name = "login"

@@ -40,23 +40,12 @@ class SearchRepositoriesRouter {
 }
 
 extension SearchRepositoriesRouter: ISearchRepositoriesRouter {
-    func navigateToRepoDetailScreen(of repoItem: Repository) {
-        // TODO: navigate to repo details
-//        if let movieId = movieItem.id {
-//            let movieDetailVC = MovieDetailRouter.setupModule(with: movieId)
-//            view?.navigationController?.pushViewController(movieDetailVC, animated: true)
-//        } else {
-//            view?.showErrorDialog(with: Constants.Error.defaultErrorMessage)
-//        }
+    func navigateToRepoDetailScreen(with repoDetailItem: Repository) {
+        view?.navigationController?.pushViewController(RepositoryDetailRouter.setupModule(with: repoDetailItem), animated: true)
     }
 
-    func navigateToUserDetailScreen(of repoItem: Repository) {
+    func navigateToUserDetailScreen(with userName: String, _ repoName: String) {
         // TODO: navigate to user details
-//        if let movieId = movieItem.id {
-//            let movieDetailVC = MovieDetailRouter.setupModule(with: movieId)
-//            view?.navigationController?.pushViewController(movieDetailVC, animated: true)
-//        } else {
-//            view?.showErrorDialog(with: Constants.Error.defaultErrorMessage)
-//        }
+//        view?.navigationController?.pushViewController(UserDetailRouter.setupModule(with: userName), animated: true)
     }
 }

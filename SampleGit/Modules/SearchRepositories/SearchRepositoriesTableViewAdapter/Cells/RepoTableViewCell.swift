@@ -47,7 +47,9 @@ class RepoTableViewCell: UITableViewCell {
             delegate?.repoCardClicked(with: repoItem)
         } else {
             print("Tapped inside the view")
-            delegate?.avatarClicked(with: repoItem)
+            if let repoOwnerName = repoItem.owner?.name, let repoName = repoItem.name {
+                delegate?.avatarClicked(with: repoOwnerName, repoName)
+            }
         }
     }
 

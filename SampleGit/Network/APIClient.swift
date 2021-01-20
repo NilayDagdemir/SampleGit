@@ -15,7 +15,7 @@ protocol APIClientInterface {
     typealias OnError = ((WSError?) -> Void)?
 
     func searchRepositories(with searchKeywordQuery: String, perPage: Int, pageNumber: Int, onSuccess: @escaping OnSuccess<RepositoryList>, onError: OnError)
-    func getRepositoryDetail(with userName: String, onSuccess: @escaping OnSuccess<RepositoryDetail>, onError: OnError)
+    func getRepositoryDetail(with userName: String, onSuccess: @escaping OnSuccess<Repository>, onError: OnError)
     func getUserDetail(with userName: String, onSuccess: @escaping OnSuccess<UserDetail>, onError: OnError)
 }
 
@@ -26,7 +26,7 @@ class APIClient: APIClientInterface {
                                           onError: onError)
     }
 
-    func getRepositoryDetail(with searchQuery: String, onSuccess: @escaping OnSuccess<RepositoryDetail>, onError: OnError) {
+    func getRepositoryDetail(with searchQuery: String, onSuccess: @escaping OnSuccess<Repository>, onError: OnError) {
         APIProvider.shared.performRequest(route: .getRepositoryDetail(searchQuery),
                                           onSuccess: onSuccess,
                                           onError: onError)

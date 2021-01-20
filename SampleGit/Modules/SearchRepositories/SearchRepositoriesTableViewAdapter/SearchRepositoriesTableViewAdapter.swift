@@ -60,6 +60,17 @@ extension SearchRepositoriesTableViewAdapter: UITableViewDelegate, UITableViewDa
     }
 }
 
+extension SearchRepositoriesTableViewAdapter: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        switch scrollView.panGestureRecognizer.state {
+            case .began:
+                let scrollPosition = scrollView.contentOffset.y
+                presenter.scrollViewDidScrollTriggered(with: scrollPosition)
+            default:
+                break
+        }
+    }
+}
 
 extension SearchRepositoriesTableViewAdapter: RepoTableViewCellDelegate {
     func repoCardClicked(with repoItem: Repository) {
@@ -67,8 +78,8 @@ extension SearchRepositoriesTableViewAdapter: RepoTableViewCellDelegate {
         presenter.repoCardClicked(with: repoItem)
     }
 
-    func avatarClicked(with repoItem: Repository) {
+    func avatarClicked(with userName: String, _ repoName: String) {
         print("here avatar clicked")
-        presenter.avatarClicked(with: repoItem)
+        presenter.avatarClicked(with: userName, repoName)
     }
 }

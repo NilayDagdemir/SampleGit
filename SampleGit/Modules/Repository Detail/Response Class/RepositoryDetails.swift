@@ -1,5 +1,5 @@
 //
-//  RepositoryDetail.swift
+//  RepositoryDetails.swift
 //  SampleGit
 //
 //  Created by Eda Nilay DAĞDEMİR on 18.01.2021.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RepositoryDetail: Codable {
+class RepositoryDetails: Codable {
     let id, forksCount, size: Int?
     let name, fullName, welcomeDescription: String?
     let owner: Owner?

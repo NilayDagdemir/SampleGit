@@ -6,23 +6,27 @@
 //  Copyright © 2021 Eda Nilay DAĞDEMİR. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol RepoTableViewCellDelegate: AnyObject {
-    func avatarClicked(with repoItem: Repository)
+    func avatarClicked(with userName: String, _ repoName: String)
     func repoCardClicked(with repoItem: Repository)
 }
 
 protocol ISearchRepositoriesView: IBaseView {
     func reloadTableView()
     func closeSearchBar()
+    func scrollViewScrolled(with scrollPosition: CGFloat)
 }
 
 protocol ISearchRepositoriesPresenter: IBasePresenter {
     func filterItems(with searchText: String, _ pageNumber: Int)
     func getFilteredRepos() -> [Repository]
+    func itemExistsOnTableView() -> Bool
     func repoCardClicked(with repoItem: Repository)
-    func avatarClicked(with repoItem: Repository)
+    func avatarClicked(with userName: String, _ repoName: String)
+    func scrollViewDidScrollTriggered(with scrollPosition: CGFloat)
+    func fetchData()
 }
 
 protocol ISearchRepositoriesInteractor: class {
@@ -34,6 +38,6 @@ protocol ISearchRepositoriesInteractorToPresenter: IBaseInteractorToPresenter {
 }
 
 protocol ISearchRepositoriesRouter: class {
-    func navigateToRepoDetailScreen(of repoItem: Repository)
-    func navigateToUserDetailScreen(of repoItem: Repository)
+    func navigateToRepoDetailScreen(with repoDetailItem: Repository)
+    func navigateToUserDetailScreen(with userName: String, _ repoName: String)
 }

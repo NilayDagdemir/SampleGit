@@ -11,23 +11,11 @@ import UIKit
 class Constants {
     struct Error {
         static let defaultErrorMessage: String = "An error occured. Please try again later."
-        static let noOverviewTextExists: String = "**No overview exists for this one**"
+        static let noOverviewTextExists: String = "**No info exists**"
         static let noSearchTextEntered: String = "Please enter a repository name."
         static let noRepoFound: String = "No repository found."
         static let invalidURL: String = "Invalid URL."
     }
-
-    // MARK: Common
-//    enum PosterProperties: String {
-//        case low, high
-//
-//        var resolution: String {
-//            switch self {
-//            case .low: return "w300"
-//            case .high: return "w780"
-//            }
-//        }
-//    }
 
     // MARK: SearchRepositories
     struct SearchRepositories {
@@ -44,26 +32,13 @@ class Constants {
         static let searchBarPlaceholder: String = "Enter a repository name."
 
         // MARK GitHub API Search Parameter
-        static let filteredItemCountPerPage: Int = 100
+        static let filteredItemCountPerPage: Int = 40
     }
 
-//    // MARK: Movie Detail Collection View Cells
-//    enum MovieDetailSectionHeaderCells: String {
-//        case video, cast
-//
-//        var title: String {
-//            switch self {
-//            case .video: return "Videos:"
-//            case .cast: return "Cast:"
-//            }
-//        }
-//    }
-//
-//    static func getVideoURL(from base: String, _ key: String) -> String {
-//        switch base {
-//        case "YouTube": return "https://www.youtube.com/watch?v=\(key)"
-//        case "Vimeo": return "https://vimeo.com/\(key)"
-//        default: return ""
-//        }
-//    }
+    // MARK: RepositoryDetail
+    struct RepositoryDetail {
+        // MARK: Repo Detail Card Items
+        static let branchNamePrefix: String = "Default Branch: "
+        static let repoURLPrefix: String = "URL: "
+    }
 }
