@@ -19,16 +19,12 @@ class Constants {
 
     // MARK: SearchRepositories
     struct SearchRepositories {
-        // MARK: Navigation Bar
         static let navBarTitle: String = "Find Repositories"
 
-        // MARK: Repo Not Found Popup
         static let repoNotFoundPopupMessage: String = "Repo not found."
 
-        // MARK: SearchRepositories Table View
         static let tableViewRowHeight: CGFloat = 100
 
-        // MARK: SearchBar
         static let searchBarPlaceholder: String = "Enter a repository name."
 
         // MARK GitHub API Search Parameter
@@ -37,8 +33,20 @@ class Constants {
 
     // MARK: RepositoryDetail
     struct RepositoryDetail {
+        static let navBarTitle: String = "Repository Details"
         // MARK: Repo Detail Card Items
         static let ownerTypePrefix: String = "Owner Type: "
         static let branchNamePrefix: String = "Default Branch: "
+    }
+
+    // MARK: UserDetails
+    struct UserDetails {
+        static let navBarTitle: String = "User Details"
+
+        // MARK: UserDetailTableViewCellTypes
+        enum UserDetailTableViewCellTypes: Int {
+            case userDetail
+            case userRepo
+        }
     }
 }

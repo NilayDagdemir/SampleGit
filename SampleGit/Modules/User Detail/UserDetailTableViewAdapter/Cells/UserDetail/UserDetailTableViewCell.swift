@@ -10,15 +10,23 @@ import UIKit
 
 class UserDetailTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    @IBOutlet private weak var avatarImageView: UIImageView!
+    @IBOutlet private weak var lblName: UILabel!
+    @IBOutlet private weak var lblEmail: UILabel!
+    @IBOutlet private weak var lblCompany: UILabel!
+    @IBOutlet private weak var userBioTextView: UITextView!
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    private var userDetail: UserDetail?
 
-        // Configure the view for the selected state
+    func setup(userItem: UserDetail) {
+        self.userDetail = userItem
+        lblName.text = userItem.name
+        lblEmail.text = userItem.email
+        lblCompany.text = userItem.company
+        userBioTextView.text = userItem.bio
+        if let avatarURL = userItem.avatarURL {
+            ImageDownloadManager.shared.downloadOrGetCachedImageForImageView(url: avatarURL,
+                                                                             imageView: avatarImageView)
+        }
     }
-    
 }

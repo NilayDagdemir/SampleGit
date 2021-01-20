@@ -6,13 +6,12 @@
 //  Copyright © 2021 Eda Nilay DAĞDEMİR. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class UserDetailPresenter {
 
     // MARK: Properties
     weak var view: IUserDetailView?
-    var router: IUserDetailRouter?
     var interactor: IUserDetailInteractor?
 
     private var userName: String?
@@ -32,6 +31,32 @@ extension UserDetailPresenter: IUserDetailPresenter {
     func setClickedUserName(_ userName: String) {
         self.userName = userName
     }
+
+    func getUserDetail() -> UserDetail? {
+        return userDetail ?? nil
+    }
+
+    func getUserRepos() -> [Repository] {
+        return userRepos
+    }
+
+    func itemExistsOnTableView() -> Bool {
+        return !(userRepos.isEmpty)
+    }
+
+    func scrollViewDidScrollTriggered(with scrollPosition: CGFloat) {
+        view?.scrollViewScrolled(with: scrollPosition)
+    }
+
+    func fetchUserRepos() {
+        print("here to fetch repos")
+        view?.showProgressHUD()
+        // TODO: pageNumber ve count gerekiyor mu?
+        if let userName = userName {
+            interactor?.retrieveUserRepositories(with: userName)
+        }
+        //interactor?.searchRepos(with: latestSearchText, perPage: Constants.SearchRepositories.filteredItemCountPerPage, pageNumber: currentPage)
+    }
 }
 
 extension UserDetailPresenter: IUserDetailInteractorToPresenter {
@@ -46,5 +71,10 @@ extension UserDetailPresenter: IUserDetailInteractorToPresenter {
 
     func userReposRecieved(_ repoList: [Repository]) {
         self.userRepos = repoList
+        view?.hideProgressHUD()
+        view?.reloadTableView()
+        if userRepos.isEmpty {
+            view?.showErrorDialog(with: Constants.Error.noRepoFound)
+        }
     }
 }

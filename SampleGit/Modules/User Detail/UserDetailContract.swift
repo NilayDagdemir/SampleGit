@@ -6,14 +6,20 @@
 //  Copyright © 2021 Eda Nilay DAĞDEMİR. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol IUserDetailView: IBaseView {
-    // TODO: Declare view methods
+    func reloadTableView()
+    func scrollViewScrolled(with scrollPosition: CGFloat)
 }
 
 protocol IUserDetailPresenter: IBasePresenter {
     func setClickedUserName(_ userName: String)
+    func getUserDetail() -> UserDetail?
+    func getUserRepos() -> [Repository]
+    func itemExistsOnTableView() -> Bool
+    func scrollViewDidScrollTriggered(with scrollPosition: CGFloat)
+    func fetchUserRepos()
 }
 
 protocol IUserDetailInteractor: class {
@@ -24,8 +30,4 @@ protocol IUserDetailInteractor: class {
 protocol IUserDetailInteractorToPresenter: IBaseInteractorToPresenter {
     func userDetailsRecieved(_ userDetails: UserDetail)
     func userReposRecieved(_ repoList: [Repository])
-}
-
-protocol IUserDetailRouter: class {
-    // TODO: Declare wireframe methods
 }

@@ -19,32 +19,30 @@ class RepoTableViewCell: UITableViewCell {
             ownerImageView.addGestureRecognizer(tap)
         }
     }
-    
+
     private var repoItem: Repository?
 
     func setup(repoItem: Repository) {
         self.repoItem = repoItem
         lblRepoTitle.text = repoItem.name
         lblOwnerName.text = repoItem.owner?.name
-        if let avatarURL = repoItem.owner?.avatarUrl {
+        if let avatarURL = repoItem.owner?.avatarURL {
             ImageDownloadManager.shared.downloadOrGetCachedImageForImageView(url: avatarURL,
                                                                              imageView: ownerImageView)
         }
     }
 
-    override class func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        let touch = touches.first
-        guard let location = touch?.location(in: self), let repoItem = repoItem else { return }
-        if !ownerImageView.frame.contains(location) {
-            delegate?.repoCardClicked(with: repoItem)
-        } else {
-            if let repoOwnerName = repoItem.owner?.name {
-                delegate?.avatarClicked(with: repoOwnerName)
+        if delegate != nil {
+            let touch = touches.first
+            guard let location = touch?.location(in: self), let repoItem = repoItem else { return }
+            if !ownerImageView.frame.contains(location) {
+                delegate?.repoCardClicked(with: repoItem)
+            } else {
+                if let repoOwnerName = repoItem.owner?.name {
+                    delegate?.avatarClicked(with: repoOwnerName)
+                }
             }
         }
     }

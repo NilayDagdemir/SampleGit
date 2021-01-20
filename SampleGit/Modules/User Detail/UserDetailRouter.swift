@@ -6,7 +6,6 @@
 //  Copyright © 2021 Eda Nilay DAĞDEMİR. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class UserDetailRouter {
@@ -21,12 +20,13 @@ class UserDetailRouter {
         let router = UserDetailRouter()
         let interactor = UserDetailInteractor()
         let networkAPI = APIClient()
+        let adapter = UserDetailTableViewAdapter(presenter: presenter)
 
         viewController.presenter =  presenter
         viewController.modalPresentationStyle = .fullScreen
+        viewController.adapter = adapter
 
         presenter.view = viewController
-        presenter.router = router
         presenter.interactor = interactor
         presenter.setClickedUserName(userName)
 
@@ -37,8 +37,4 @@ class UserDetailRouter {
 
         return viewController
     }
-}
-
-extension UserDetailRouter: IUserDetailRouter {
-    // TODO: Implement wireframe methods
 }

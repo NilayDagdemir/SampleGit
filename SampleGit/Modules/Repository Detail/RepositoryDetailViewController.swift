@@ -42,15 +42,10 @@ class RepositoryDetailViewController: BaseViewController, StoryboardLoadable {
     private func setOwnerCard(with ownerItem: RepoOwner) {
         lblOwnerName.text = ownerItem.name
         lblOwnerType.text = Constants.RepositoryDetail.ownerTypePrefix + "\(ownerItem.type ?? Constants.Error.noOverviewTextExists)"
-        if let avatarURL = ownerItem.avatarUrl {
+        if let avatarURL = ownerItem.avatarURL {
             ImageDownloadManager.shared.downloadOrGetCachedImageForImageView(url: avatarURL,
                                                                              imageView: ownerAvatarImageView)
         }
-    }
-
-    private func addTapGestureRecognizerToLink() {
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(repoURLTapped))
-        lblRepoURL.addGestureRecognizer(tapRecognizer)
     }
 
     private func setRepoDetailCard(with repoItem: Repository) {
@@ -63,6 +58,12 @@ class RepositoryDetailViewController: BaseViewController, StoryboardLoadable {
         lblWatcherCount.text = "\(repoItem.watcherCount ?? 0)"
         lblStarCount.text = "\(repoItem.starCount ?? 0)"
         lblForkCount.text = "\(repoItem.forkCount ?? 0)"
+    }
+
+    private func addTapGestureRecognizerToLink() {
+        // TODO: test here.
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(repoURLTapped))
+        lblRepoURL.addGestureRecognizer(tapRecognizer)
     }
 
     @objc private func repoURLTapped() {

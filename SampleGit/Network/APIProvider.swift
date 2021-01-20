@@ -27,6 +27,7 @@ class APIProvider: NSObject {
                                       decoder: DataDecoder = JSONDecoder(),
                                       onSuccess: OnSuccess<T>,
                                       onError: OnError? = nil) -> DataRequest {
+        print("here route is: \(route)")
         return getRequest(route, decoder, onSuccess, onError)
     }
 
@@ -38,11 +39,12 @@ class APIProvider: NSObject {
             .validate(statusCode: 200..<400)
             .validate(contentType: ["application/json"])
             .responseDecodable(of: T.self, decoder: decoder) { (requestResponse) in
+                print("here is res :\(requestResponse) and result: \(requestResponse.result)")
                 switch requestResponse.result {
                 case .success:
                     onSuccess?(WSResponse(results: requestResponse.value))
                 case .failure:
-                    guard let onError = onError else {
+                    guard onError != nil else {
                         onSuccess?(WSResponse(results: nil))
                         return
                     }

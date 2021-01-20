@@ -19,12 +19,12 @@ extension UserDetailInteractor: IUserDetailInteractor {
     func retrieveUserDetails(with userName: String) {
         networkAPI?.getUserDetail(with: userName, onSuccess: { [weak self] response in
             guard let self = self else { return }
-            print("here w response: \(response.results) and res is: \(response)")
-//            if let userDetails = response?.results {
-//                self.output?.userDetailsRecieved(userDetails)
-//            } else {
-//                self.output?.wsErrorOccurred(with: Constants.Error.defaultErrorMessage)
-//            }
+            print("here res: \(response.results) and \(response)")
+            if let userDetails = response.results {
+                self.output?.userDetailsRecieved(userDetails)
+            } else {
+                self.output?.wsErrorOccurred(with: Constants.Error.defaultErrorMessage)
+            }
         })
     }
 
@@ -32,11 +32,11 @@ extension UserDetailInteractor: IUserDetailInteractor {
         networkAPI?.getUserRepos(with: userName, onSuccess: { [weak self] response in
             guard let self = self else { return }
             print("here w response: \(response.results) and res is: \(response)")
-//            if let userRepos = response?.results {
-//                self.output?.userReposRecieved(userRepos)
-//            } else {
-//                self.output?.wsErrorOccurred(with: Constants.Error.defaultErrorMessage)
-//            }
+            if let userRepos = response.results {
+                self.output?.userReposRecieved(userRepos)
+            } else {
+                self.output?.wsErrorOccurred(with: Constants.Error.defaultErrorMessage)
+            }
         })
     }
 }

@@ -20,4 +20,10 @@ extension UITableView {
     func registerCell<T: UITableViewCell>(_ cell: T.Type) {
         register(nibFromClass(cell), forCellReuseIdentifier: cell.nameOfClass)
     }
+
+    func registerCells(_ cells: [UITableViewCell.Type]) {
+        for cell in cells {
+            register(nibFromClass(cell), forCellReuseIdentifier: cell.nameOfClass)
+        }
+    }
 }
