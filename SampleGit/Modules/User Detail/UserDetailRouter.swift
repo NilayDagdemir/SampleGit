@@ -6,6 +6,7 @@
 //  Copyright © 2021 Eda Nilay DAĞDEMİR. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 class UserDetailRouter {
@@ -27,6 +28,7 @@ class UserDetailRouter {
         viewController.adapter = adapter
 
         presenter.view = viewController
+        presenter.router = router
         presenter.interactor = interactor
         presenter.setClickedUserName(userName)
 
@@ -36,5 +38,11 @@ class UserDetailRouter {
         interactor.networkAPI = networkAPI
 
         return viewController
+    }
+}
+
+extension UserDetailRouter: IUserDetailRouter {
+    func navigateToURL(link: String) {
+        UIApplication.shared.openUrl(link)
     }
 }

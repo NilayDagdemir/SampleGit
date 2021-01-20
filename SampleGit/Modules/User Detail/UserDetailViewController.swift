@@ -30,6 +30,8 @@ class UserDetailViewController: BaseViewController, StoryboardLoadable {
     private func setupTableView() {
         userDetailTableView?.delegate = adapter
         userDetailTableView?.dataSource = adapter
+        userDetailTableView.contentSize = CGSize(width: userDetailTableView.frame.size.width,
+                                                 height: userDetailTableView.contentSize.height)
         userDetailTableView?.registerCells([UserDetailTableViewCell.self, RepoDetailTableViewCell.self])
     }
 }
@@ -40,8 +42,6 @@ extension UserDetailViewController: IUserDetailView {
     }
 
     func scrollViewScrolled(with scrollPosition: CGFloat) {
-        print("here: \(presenter?.itemExistsOnTableView())")
-        print("here scroll pos: \(scrollPosition) , and tv content size: \(userDetailTableView.contentSize.height)")
         if scrollPosition > userDetailTableView.contentSize.height - 100, presenter?.itemExistsOnTableView() ?? false {
             presenter?.fetchUserRepos()
         }

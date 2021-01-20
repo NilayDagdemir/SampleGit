@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B40E776E25B8B9F600E88FA7 /* RepoDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40E776C25B8B9F600E88FA7 /* RepoDetailTableViewCell.swift */; };
 		B40E776F25B8B9F600E88FA7 /* RepoDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B40E776D25B8B9F600E88FA7 /* RepoDetailTableViewCell.xib */; };
+		B40E777125B8E2CE00E88FA7 /* CardViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40E777025B8E2CE00E88FA7 /* CardViewBase.swift */; };
 		B416296E25B88E0E0096A4D8 /* UserDetailTableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B416296D25B88E0E0096A4D8 /* UserDetailTableViewAdapter.swift */; };
 		B416297225B88E230096A4D8 /* UserDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B416297025B88E230096A4D8 /* UserDetailTableViewCell.swift */; };
 		B416297325B88E230096A4D8 /* UserDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B416297125B88E230096A4D8 /* UserDetailTableViewCell.xib */; };
@@ -51,7 +52,6 @@
 		B4FCBBD425B816EF00E2F205 /* RepositoryDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FCBBCE25B816EF00E2F205 /* RepositoryDetailPresenter.swift */; };
 		B4FCBBD525B816EF00E2F205 /* RepositoryDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FCBBCF25B816EF00E2F205 /* RepositoryDetailRouter.swift */; };
 		B4FCBBD625B816EF00E2F205 /* RepositoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FCBBD025B816EF00E2F205 /* RepositoryDetailViewController.swift */; };
-		B4FCBBD725B816EF00E2F205 /* RepositoryDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FCBBD125B816EF00E2F205 /* RepositoryDetailInteractor.swift */; };
 		B4FCBBD925B81AEE00E2F205 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FCBBD825B81AEE00E2F205 /* UIView+Ext.swift */; };
 		B4FCBBE225B8709200E2F205 /* UserDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4FCBBDC25B8709200E2F205 /* UserDetail.storyboard */; };
 		B4FCBBE325B8709200E2F205 /* UserDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FCBBDD25B8709200E2F205 /* UserDetailContract.swift */; };
@@ -67,6 +67,7 @@
 /* Begin PBXFileReference section */
 		B40E776C25B8B9F600E88FA7 /* RepoDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailTableViewCell.swift; sourceTree = "<group>"; };
 		B40E776D25B8B9F600E88FA7 /* RepoDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoDetailTableViewCell.xib; sourceTree = "<group>"; };
+		B40E777025B8E2CE00E88FA7 /* CardViewBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewBase.swift; sourceTree = "<group>"; };
 		B416296D25B88E0E0096A4D8 /* UserDetailTableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailTableViewAdapter.swift; sourceTree = "<group>"; };
 		B416297025B88E230096A4D8 /* UserDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailTableViewCell.swift; sourceTree = "<group>"; };
 		B416297125B88E230096A4D8 /* UserDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailTableViewCell.xib; sourceTree = "<group>"; };
@@ -109,7 +110,6 @@
 		B4FCBBCE25B816EF00E2F205 /* RepositoryDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailPresenter.swift; sourceTree = "<group>"; };
 		B4FCBBCF25B816EF00E2F205 /* RepositoryDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailRouter.swift; sourceTree = "<group>"; };
 		B4FCBBD025B816EF00E2F205 /* RepositoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailViewController.swift; sourceTree = "<group>"; };
-		B4FCBBD125B816EF00E2F205 /* RepositoryDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailInteractor.swift; sourceTree = "<group>"; };
 		B4FCBBD825B81AEE00E2F205 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		B4FCBBDC25B8709200E2F205 /* UserDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserDetail.storyboard; sourceTree = "<group>"; };
 		B4FCBBDD25B8709200E2F205 /* UserDetailContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailContract.swift; sourceTree = "<group>"; };
@@ -156,8 +156,8 @@
 		B416296F25B88E110096A4D8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				B40E776B25B8B9E300E88FA7 /* RepoDetail */,
 				B416297425B88E2B0096A4D8 /* UserDetail */,
+				B40E776B25B8B9E300E88FA7 /* RepoDetail */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -238,7 +238,6 @@
 				B4FCBBCE25B816EF00E2F205 /* RepositoryDetailPresenter.swift */,
 				B4FCBBCF25B816EF00E2F205 /* RepositoryDetailRouter.swift */,
 				B4FCBBD025B816EF00E2F205 /* RepositoryDetailViewController.swift */,
-				B4FCBBD125B816EF00E2F205 /* RepositoryDetailInteractor.swift */,
 			);
 			path = "Repository Detail";
 			sourceTree = "<group>";
@@ -304,6 +303,7 @@
 				B4D65AE425B760780077E55F /* ImageDownloadManager.swift */,
 				B4FCBBEA25B8741D00E2F205 /* RoundedCornerView.swift */,
 				B4FCBBEC25B8791000E2F205 /* UnderlinedLabel.swift */,
+				B40E777025B8E2CE00E88FA7 /* CardViewBase.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -488,6 +488,7 @@
 				B4FCBBE525B8709200E2F205 /* UserDetailRouter.swift in Sources */,
 				B440F3EA25B626E400B756BF /* FilteredRepositoryList.swift in Sources */,
 				B4FCBBE625B8709200E2F205 /* UserDetailViewController.swift in Sources */,
+				B40E777125B8E2CE00E88FA7 /* CardViewBase.swift in Sources */,
 				B440F3E125B6229700B756BF /* WSResponse.swift in Sources */,
 				B4D65AE025B75BB60077E55F /* RepoTableViewCell.swift in Sources */,
 				B440F3E325B622A500B756BF /* APIRouter.swift in Sources */,
@@ -514,7 +515,6 @@
 				B4D65AE325B75D220077E55F /* NSObject+Ext.swift in Sources */,
 				B40E776E25B8B9F600E88FA7 /* RepoDetailTableViewCell.swift in Sources */,
 				B4D65AE525B760780077E55F /* ImageDownloadManager.swift in Sources */,
-				B4FCBBD725B816EF00E2F205 /* RepositoryDetailInteractor.swift in Sources */,
 				B4FCBBEB25B8741D00E2F205 /* RoundedCornerView.swift in Sources */,
 				B4FCBBD425B816EF00E2F205 /* RepositoryDetailPresenter.swift in Sources */,
 				B4FCBBE425B8709200E2F205 /* UserDetailPresenter.swift in Sources */,

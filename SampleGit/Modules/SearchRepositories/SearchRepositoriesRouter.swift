@@ -41,10 +41,12 @@ class SearchRepositoriesRouter {
 
 extension SearchRepositoriesRouter: ISearchRepositoriesRouter {
     func navigateToRepoDetailScreen(with repoDetailItem: Repository) {
-        view?.navigationController?.pushViewController(RepositoryDetailRouter.setupModule(with: repoDetailItem), animated: true)
+        view?.navigationController?.pushViewController(RepositoryDetailRouter.setupModule(with: repoDetailItem),
+                                                       animated: true)
     }
 
     func navigateToUserDetailScreen(with userName: String) {
-        view?.navigationController?.pushViewController(UserDetailRouter.setupModule(with: userName), animated: true)
+        view?.navigationController?.pushViewController(UserDetailRouter.setupModule(with: userName),
+                                                       animated: true)
     }
 }

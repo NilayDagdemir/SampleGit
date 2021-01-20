@@ -9,15 +9,10 @@
 import Foundation
 
 struct UserDetail: Codable {
-    let id: Int?
-    let url, avatarURL, gravatarID: String?
-    let name, bio, company, location, email: String?
-    let publicRepos: Int?
+    let name, bio, company, location, email, avatarURL: String?
 
     enum CodingKeys: String, CodingKey {
         case avatarURL = "avatar_url"
-        case gravatarID = "gravatar_id"
-        case publicRepos = "public_repos"
-        case id, name, url, company, location, email, bio
+        case name, bio, company, location, email
     }
 }

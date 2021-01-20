@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,14 +19,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ePB-zo-1B9" userLabel="User Detail Table View">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ePB-zo-1B9" userLabel="User Detail Table View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                <color key="backgroundColor" name="pale_grey"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ePB-zo-1B9" firstAttribute="leading" secondItem="IFj-I9-EFs" secondAttribute="leading" id="6ay-iQ-tfp"/>
+                            <constraint firstItem="ePB-zo-1B9" firstAttribute="centerX" secondItem="IFj-I9-EFs" secondAttribute="centerX" id="SWS-Lr-FGw"/>
                             <constraint firstAttribute="trailing" secondItem="ePB-zo-1B9" secondAttribute="trailing" id="V2P-uy-Jsd"/>
                             <constraint firstAttribute="bottom" secondItem="ePB-zo-1B9" secondAttribute="bottom" id="ee8-sV-a5L"/>
                             <constraint firstItem="ePB-zo-1B9" firstAttribute="top" secondItem="IFj-I9-EFs" secondAttribute="top" id="kEO-NL-3C4"/>
@@ -40,12 +39,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iqd-wc-fRj" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-63.768115942028992" y="83.705357142857139"/>
+            <point key="canvasLocation" x="-64.799999999999997" y="83.497536945812811"/>
         </scene>
     </scenes>
-    <resources>
-        <namedColor name="pale_grey">
-            <color red="0.97299998998641968" green="0.97600001096725464" blue="0.98400002717971802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
 </document>

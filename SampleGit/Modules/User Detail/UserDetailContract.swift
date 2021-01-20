@@ -20,6 +20,7 @@ protocol IUserDetailPresenter: IBasePresenter {
     func itemExistsOnTableView() -> Bool
     func scrollViewDidScrollTriggered(with scrollPosition: CGFloat)
     func fetchUserRepos()
+    func repoURLTapped(with repoURL: String)
 }
 
 protocol IUserDetailInteractor: class {
@@ -30,4 +31,8 @@ protocol IUserDetailInteractor: class {
 protocol IUserDetailInteractorToPresenter: IBaseInteractorToPresenter {
     func userDetailsRecieved(_ userDetails: UserDetail)
     func userReposRecieved(_ repoList: [Repository])
+}
+
+protocol IUserDetailRouter: class {
+    func navigateToURL(link: String)
 }

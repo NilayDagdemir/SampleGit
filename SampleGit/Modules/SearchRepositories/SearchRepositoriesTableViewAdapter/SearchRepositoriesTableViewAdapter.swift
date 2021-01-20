@@ -48,7 +48,7 @@ extension SearchRepositoriesTableViewAdapter: UITableViewDelegate, UITableViewDa
         }
         return UITableViewCell()
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return Constants.SearchRepositories.tableViewRowHeight
     }
@@ -56,24 +56,19 @@ extension SearchRepositoriesTableViewAdapter: UITableViewDelegate, UITableViewDa
 
 extension SearchRepositoriesTableViewAdapter: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        switch scrollView.panGestureRecognizer.state {
-            case .began:
-                let scrollPosition = scrollView.contentOffset.y
-                presenter.scrollViewDidScrollTriggered(with: scrollPosition)
-            default:
-                break
+        if scrollView.panGestureRecognizer.state == .began {
+            let scrollPosition = scrollView.contentOffset.y
+            presenter.scrollViewDidScrollTriggered(with: scrollPosition)
         }
     }
 }
 
 extension SearchRepositoriesTableViewAdapter: RepoTableViewCellDelegate {
     func repoCardClicked(with repoItem: Repository) {
-        print("here repo card clicked")
         presenter.repoCardClicked(with: repoItem)
     }
 
     func avatarClicked(with userName: String) {
-        print("here triggered once")
         presenter.avatarClicked(with: userName)
     }
 }

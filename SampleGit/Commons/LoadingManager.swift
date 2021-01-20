@@ -11,7 +11,7 @@ import UIKit
 class LoadingManager: NSObject {
 
     static let shared = LoadingManager()
-    
+
     private var indicator = UIActivityIndicatorView()
 
     private override init() {

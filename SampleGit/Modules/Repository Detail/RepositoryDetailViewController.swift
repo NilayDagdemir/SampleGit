@@ -13,7 +13,13 @@ class RepositoryDetailViewController: BaseViewController, StoryboardLoadable {
     @IBOutlet private weak var userCardView: UIView!
     @IBOutlet private weak var lblOwnerName: UILabel!
     @IBOutlet private weak var lblOwnerType: UILabel!
-    @IBOutlet private weak var ownerAvatarImageView: UIImageView!
+    @IBOutlet private weak var ownerAvatarImageView: UIImageView! {
+        didSet {
+            let tap = UITapGestureRecognizer(target: self, action: #selector(avatarTapped))
+            tap.cancelsTouchesInView = false
+            ownerAvatarImageView.addGestureRecognizer(tap)
+        }
+    }
 
     @IBOutlet private weak var repoDetailView: UIView!
     @IBOutlet private weak var lblRepoName: UILabel!
@@ -24,8 +30,7 @@ class RepositoryDetailViewController: BaseViewController, StoryboardLoadable {
 
     @IBOutlet private weak var lblWatcherCount: UILabel!
     @IBOutlet private weak var lblStarCount: UILabel!
-    @IBOutlet private weak var lblForkCount: UILabel!
-
+    @IBOutlet private  weak var lblForkCount: UILabel!
 
     // MARK: Properties
     var presenter: IRepositoryDetailPresenter?
@@ -34,14 +39,14 @@ class RepositoryDetailViewController: BaseViewController, StoryboardLoadable {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
+        title = Constants.RepositoryDetail.navBarTitle
         addTapGestureRecognizerToLink()
-        userCardView.addShadow()
-        repoDetailView.addShadow()
     }
 
     private func setOwnerCard(with ownerItem: RepoOwner) {
         lblOwnerName.text = ownerItem.name
-        lblOwnerType.text = Constants.RepositoryDetail.ownerTypePrefix + "\(ownerItem.type ?? Constants.Error.noOverviewTextExists)"
+        lblOwnerType.text = Constants.RepositoryDetail.ownerTypePrefix +
+                            "\(ownerItem.type ?? Constants.Error.noOverviewTextExists)"
         if let avatarURL = ownerItem.avatarURL {
             ImageDownloadManager.shared.downloadOrGetCachedImageForImageView(url: avatarURL,
                                                                              imageView: ownerAvatarImageView)
@@ -51,17 +56,17 @@ class RepositoryDetailViewController: BaseViewController, StoryboardLoadable {
     private func setRepoDetailCard(with repoItem: Repository) {
         lblRepoName.text = repoItem.name
         lblLanguage.text = repoItem.language
-        lblDefaultBranchName.text = Constants.RepositoryDetail.branchNamePrefix + "\(repoItem.defaultBranch ?? Constants.Error.noOverviewTextExists)"
+        lblDefaultBranchName.text = Constants.RepositoryDetail.branchNamePrefix +
+                                    "\(repoItem.defaultBranch ?? Constants.Error.noOverviewTextExists)"
         lblRepoURL.text = "\(repoItem.repoUrl ?? Constants.Error.noOverviewTextExists)"
 
-        repoDescriptionTextView.text = repoItem.repoDescription
+        repoDescriptionTextView.text = "\(repoItem.repoDescription ?? Constants.Error.noOverviewTextExists)"
         lblWatcherCount.text = "\(repoItem.watcherCount ?? 0)"
         lblStarCount.text = "\(repoItem.starCount ?? 0)"
         lblForkCount.text = "\(repoItem.forkCount ?? 0)"
     }
 
     private func addTapGestureRecognizerToLink() {
-        // TODO: test here.
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(repoURLTapped))
         lblRepoURL.addGestureRecognizer(tapRecognizer)
     }
@@ -70,6 +75,10 @@ class RepositoryDetailViewController: BaseViewController, StoryboardLoadable {
         if let repoURL = lblRepoURL.text {
             presenter?.repoURLTapped(with: repoURL)
         }
+    }
+
+    @objc private func avatarTapped() {
+        presenter?.avatarClicked()
     }
 }
 

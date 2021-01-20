@@ -19,19 +19,15 @@ class RepositoryDetailRouter {
         let viewController = UIStoryboard.loadViewController() as RepositoryDetailViewController
         let presenter = RepositoryDetailPresenter()
         let router = RepositoryDetailRouter()
-        let interactor = RepositoryDetailInteractor()
 
         viewController.presenter =  presenter
         viewController.modalPresentationStyle = .fullScreen
 
         presenter.view = viewController
         presenter.router = router
-        presenter.interactor = interactor
         presenter.setSelectedRepoDetailItem(to: repoDetailItem)
 
         router.view = viewController
-
-        interactor.output = presenter
 
         return viewController
     }

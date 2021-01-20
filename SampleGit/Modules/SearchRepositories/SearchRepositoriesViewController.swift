@@ -40,7 +40,7 @@ class SearchRepositoriesViewController: BaseViewController, StoryboardLoadable {
         filteredRepositoriesTableView?.dataSource = adapter
         filteredRepositoriesTableView?.registerCell(RepoTableViewCell.self)
     }
-    
+
     @objc func showSearchBar() {
         searchBar.becomeFirstResponder()
         navigationItem.titleView = searchBar
@@ -64,9 +64,9 @@ extension SearchRepositoriesViewController: ISearchRepositoriesView {
     }
 
     func scrollViewScrolled(with scrollPosition: CGFloat) {
-        print("here: \(presenter?.itemExistsOnTableView())")
         print("here scroll pos: \(scrollPosition) , and tv content size: \(filteredRepositoriesTableView.contentSize.height)")
-        if scrollPosition > filteredRepositoriesTableView.contentSize.height - 100, presenter?.itemExistsOnTableView() ?? false {
+        if scrollPosition > filteredRepositoriesTableView.contentSize.height - 100,
+            presenter?.itemExistsOnTableView() ?? false {
             presenter?.fetchData()
         }
     }

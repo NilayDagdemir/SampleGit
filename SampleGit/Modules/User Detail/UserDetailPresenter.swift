@@ -13,6 +13,7 @@ class UserDetailPresenter {
     // MARK: Properties
     weak var view: IUserDetailView?
     var interactor: IUserDetailInteractor?
+    var router: IUserDetailRouter?
 
     private var userName: String?
     private var userDetail: UserDetail?
@@ -56,6 +57,10 @@ extension UserDetailPresenter: IUserDetailPresenter {
             interactor?.retrieveUserRepositories(with: userName)
         }
         //interactor?.searchRepos(with: latestSearchText, perPage: Constants.SearchRepositories.filteredItemCountPerPage, pageNumber: currentPage)
+    }
+
+    func repoURLTapped(with repoURL: String) {
+        router?.navigateToURL(link: repoURL)
     }
 }
 

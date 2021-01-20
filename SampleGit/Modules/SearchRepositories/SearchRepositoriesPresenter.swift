@@ -52,11 +52,12 @@ extension SearchRepositoriesPresenter: ISearchRepositoriesPresenter {
     }
 
     func fetchData() {
-        print("here w search text: \(latestSearchText)")
         if latestSearchText != "" {
             view?.showProgressHUD()
             print("here to fetch!")
-            interactor?.searchRepos(with: latestSearchText, perPage: Constants.SearchRepositories.filteredItemCountPerPage, pageNumber: currentPage)
+            interactor?.searchRepos(with: latestSearchText,
+                                    perPage: Constants.SearchRepositories.filteredItemCountPerPage,
+                                    pageNumber: currentPage)
         }
     }
 }

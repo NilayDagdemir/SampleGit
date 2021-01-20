@@ -27,7 +27,7 @@ class Constants {
 
         static let searchBarPlaceholder: String = "Enter a repository name."
 
-        // MARK GitHub API Search Parameter
+        // MARK: GitHub API Search Parameter
         static let filteredItemCountPerPage: Int = 40
     }
 
@@ -42,11 +42,11 @@ class Constants {
     // MARK: UserDetails
     struct UserDetails {
         static let navBarTitle: String = "User Details"
+    }
 
-        // MARK: UserDetailTableViewCellTypes
-        enum UserDetailTableViewCellTypes: Int {
-            case userDetail
-            case userRepo
-        }
+    // MARK: UserDetailTableViewCellTypes
+    enum UserDetailTableViewCellTypes: Int {
+        case userDetail
+        case userRepo
     }
 }

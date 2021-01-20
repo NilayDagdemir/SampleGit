@@ -17,14 +17,7 @@ protocol IRepositoryDetailPresenter: IBasePresenter {
     func getRepoDetailItem() -> Repository?
     func userAvatarClicked(with userName: String)
     func repoURLTapped(with repoURL: String)
-}
-
-protocol IRepositoryDetailInteractor: class {
-    // TODO: Declare use case methods
-}
-
-protocol IRepositoryDetailInteractorToPresenter: class {
-    // TODO: Declare interactor output methods
+    func avatarClicked()
 }
 
 protocol IRepositoryDetailRouter: class {

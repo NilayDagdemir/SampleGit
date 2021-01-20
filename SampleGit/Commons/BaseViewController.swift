@@ -18,4 +18,3 @@ class BaseViewController: UIViewController {
         super.viewDidAppear(animated)
     }
 }
-
