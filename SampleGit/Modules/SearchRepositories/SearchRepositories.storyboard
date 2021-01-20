@@ -23,10 +23,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SZu-DX-Bl1" userLabel="Filtered Repositories Table View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" name="pale_grey"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="d8s-zC-T2t" id="Luw-ez-D8G"/>
-                                    <outlet property="delegate" destination="d8s-zC-T2t" id="YGZ-Lw-NAv"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

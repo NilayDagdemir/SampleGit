@@ -12,15 +12,14 @@ class RepoTableViewCell: UITableViewCell {
     weak var delegate: RepoTableViewCellDelegate?
     @IBOutlet private weak var lblRepoTitle: UILabel!
     @IBOutlet private weak var lblOwnerName: UILabel!
-    @IBOutlet private weak var ownerImageView: UIImageView!
-//        didSet {
-//            let tap = UITapGestureRecognizer(target: self, action: #selector(self.avatarTapped))
-//            tap.cancelsTouchesInView = false
-//            ownerImageView.isUserInteractionEnabled = true
-//            ownerImageView.addGestureRecognizer(tap)
-//        }
-//    }
-
+    @IBOutlet private weak var ownerImageView: UIImageView! {
+        didSet {
+            let tap = UITapGestureRecognizer(target: self, action: .none)
+            tap.cancelsTouchesInView = false
+            ownerImageView.addGestureRecognizer(tap)
+        }
+    }
+    
     private var repoItem: Repository?
 
     func setup(repoItem: Repository) {
@@ -39,23 +38,14 @@ class RepoTableViewCell: UITableViewCell {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        print("here touches began.")
         let touch = touches.first
         guard let location = touch?.location(in: self), let repoItem = repoItem else { return }
         if !ownerImageView.frame.contains(location) {
-            print("Tapped outside the view")
             delegate?.repoCardClicked(with: repoItem)
         } else {
-            print("Tapped inside the view")
-            if let repoOwnerName = repoItem.owner?.name, let repoName = repoItem.name {
-                delegate?.avatarClicked(with: repoOwnerName, repoName)
+            if let repoOwnerName = repoItem.owner?.name {
+                delegate?.avatarClicked(with: repoOwnerName)
             }
         }
     }
-
-//    @objc func avatarTapped() {
-//        if let repoItem = repoItem {
-//            delegate?.avatarClicked(with: repoItem)
-//        }
-//    }
 }

@@ -11,14 +11,15 @@ import UIKit
 
 class UserDetailViewController: BaseViewController, StoryboardLoadable {
 
-    // MARK: Properties
+    @IBOutlet weak var userDetailTableView: UITableView!
 
+    // MARK: Properties
     var presenter: IUserDetailPresenter?
 
     // MARK: Lifecycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter?.viewDidLoad()
     }
 }
 

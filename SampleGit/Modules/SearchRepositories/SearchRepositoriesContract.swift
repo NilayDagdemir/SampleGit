@@ -9,7 +9,7 @@
 import UIKit
 
 protocol RepoTableViewCellDelegate: AnyObject {
-    func avatarClicked(with userName: String, _ repoName: String)
+    func avatarClicked(with userName: String)
     func repoCardClicked(with repoItem: Repository)
 }
 
@@ -24,7 +24,7 @@ protocol ISearchRepositoriesPresenter: IBasePresenter {
     func getFilteredRepos() -> [Repository]
     func itemExistsOnTableView() -> Bool
     func repoCardClicked(with repoItem: Repository)
-    func avatarClicked(with userName: String, _ repoName: String)
+    func avatarClicked(with userName: String)
     func scrollViewDidScrollTriggered(with scrollPosition: CGFloat)
     func fetchData()
 }
@@ -39,5 +39,5 @@ protocol ISearchRepositoriesInteractorToPresenter: IBaseInteractorToPresenter {
 
 protocol ISearchRepositoriesRouter: class {
     func navigateToRepoDetailScreen(with repoDetailItem: Repository)
-    func navigateToUserDetailScreen(with userName: String, _ repoName: String)
+    func navigateToUserDetailScreen(with userName: String)
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B416296E25B88E0E0096A4D8 /* UserDetailTableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B416296D25B88E0E0096A4D8 /* UserDetailTableViewAdapter.swift */; };
+		B416297225B88E230096A4D8 /* UserDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B416297025B88E230096A4D8 /* UserDetailTableViewCell.swift */; };
+		B416297325B88E230096A4D8 /* UserDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B416297125B88E230096A4D8 /* UserDetailTableViewCell.xib */; };
 		B440F3DE25B6227700B756BF /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440F3DD25B6227700B756BF /* Config.swift */; };
 		B440F3E125B6229700B756BF /* WSResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440F3E025B6229700B756BF /* WSResponse.swift */; };
 		B440F3E325B622A500B756BF /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440F3E225B622A500B756BF /* APIRouter.swift */; };
@@ -56,9 +59,14 @@
 		B4FCBBE625B8709200E2F205 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FCBBE025B8709200E2F205 /* UserDetailViewController.swift */; };
 		B4FCBBE725B8709200E2F205 /* UserDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FCBBE125B8709200E2F205 /* UserDetailInteractor.swift */; };
 		B4FCBBEB25B8741D00E2F205 /* RoundedCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FCBBEA25B8741D00E2F205 /* RoundedCornerView.swift */; };
+		B4FCBBED25B8791000E2F205 /* UnderlinedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FCBBEC25B8791000E2F205 /* UnderlinedLabel.swift */; };
+		B4FCBBEF25B87A4700E2F205 /* UIApplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FCBBEE25B87A4700E2F205 /* UIApplication+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B416296D25B88E0E0096A4D8 /* UserDetailTableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailTableViewAdapter.swift; sourceTree = "<group>"; };
+		B416297025B88E230096A4D8 /* UserDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailTableViewCell.swift; sourceTree = "<group>"; };
+		B416297125B88E230096A4D8 /* UserDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailTableViewCell.xib; sourceTree = "<group>"; };
 		B440F3DD25B6227700B756BF /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		B440F3E025B6229700B756BF /* WSResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSResponse.swift; sourceTree = "<group>"; };
 		B440F3E225B622A500B756BF /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
@@ -108,6 +116,8 @@
 		B4FCBBE025B8709200E2F205 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 		B4FCBBE125B8709200E2F205 /* UserDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailInteractor.swift; sourceTree = "<group>"; };
 		B4FCBBEA25B8741D00E2F205 /* RoundedCornerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerView.swift; sourceTree = "<group>"; };
+		B4FCBBEC25B8791000E2F205 /* UnderlinedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedLabel.swift; sourceTree = "<group>"; };
+		B4FCBBEE25B87A4700E2F205 /* UIApplication+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +133,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B416296C25B88DFB0096A4D8 /* UserDetailTableViewAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				B416296F25B88E110096A4D8 /* Cells */,
+				B416296D25B88E0E0096A4D8 /* UserDetailTableViewAdapter.swift */,
+			);
+			path = UserDetailTableViewAdapter;
+			sourceTree = "<group>";
+		};
+		B416296F25B88E110096A4D8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B416297425B88E2B0096A4D8 /* UserDetail */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B416297425B88E2B0096A4D8 /* UserDetail */ = {
+			isa = PBXGroup;
+			children = (
+				B416297025B88E230096A4D8 /* UserDetailTableViewCell.swift */,
+				B416297125B88E230096A4D8 /* UserDetailTableViewCell.xib */,
+			);
+			path = UserDetail;
+			sourceTree = "<group>";
+		};
 		B440F3DB25B6225600B756BF /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +198,7 @@
 		B440F3EB25B62AF800B756BF /* User Detail */ = {
 			isa = PBXGroup;
 			children = (
+				B416296C25B88DFB0096A4D8 /* UserDetailTableViewAdapter */,
 				B440F3EC25B62B0100B756BF /* Response Class */,
 				B4FCBBDC25B8709200E2F205 /* UserDetail.storyboard */,
 				B4FCBBDD25B8709200E2F205 /* UserDetailContract.swift */,
@@ -263,6 +300,7 @@
 				B4D65AD425B753310077E55F /* BaseViewController.swift */,
 				B4D65AE425B760780077E55F /* ImageDownloadManager.swift */,
 				B4FCBBEA25B8741D00E2F205 /* RoundedCornerView.swift */,
+				B4FCBBEC25B8791000E2F205 /* UnderlinedLabel.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -278,6 +316,7 @@
 				B461768B25B79328005F77EC /* UITableView+Ext.swift */,
 				B461768D25B7980F005F77EC /* UIViewController+Ext.swift */,
 				B4FCBBD825B81AEE00E2F205 /* UIView+Ext.swift */,
+				B4FCBBEE25B87A4700E2F205 /* UIApplication+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -409,6 +448,7 @@
 				B4FCBBE225B8709200E2F205 /* UserDetail.storyboard in Resources */,
 				B4F4D74825B617E000334958 /* Assets.xcassets in Resources */,
 				B4FCBBD225B816EF00E2F205 /* RepositoryDetail.storyboard in Resources */,
+				B416297325B88E230096A4D8 /* UserDetailTableViewCell.xib in Resources */,
 				B4D65AE125B75BB60077E55F /* RepoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,9 +470,12 @@
 				B4F4D73F25B617E000334958 /* AppDelegate.swift in Sources */,
 				B4D65AD525B753310077E55F /* BaseViewController.swift in Sources */,
 				B440F3F225B62C5200B756BF /* RepositoryDetails.swift in Sources */,
+				B416297225B88E230096A4D8 /* UserDetailTableViewCell.swift in Sources */,
+				B4FCBBEF25B87A4700E2F205 /* UIApplication+Ext.swift in Sources */,
 				B4D65ACD25B7502B0077E55F /* SearchRepositoriesContract.swift in Sources */,
 				B4D65AD325B750B10077E55F /* StoryboardLoadable.swift in Sources */,
 				B440F3E725B622B600B756BF /* APIProvider.swift in Sources */,
+				B416296E25B88E0E0096A4D8 /* UserDetailTableViewAdapter.swift in Sources */,
 				B4FCBBD525B816EF00E2F205 /* RepositoryDetailRouter.swift in Sources */,
 				B4D65AD125B7502B0077E55F /* SearchRepositoriesInteractor.swift in Sources */,
 				B4FCBBD625B816EF00E2F205 /* RepositoryDetailViewController.swift in Sources */,
@@ -454,6 +497,7 @@
 				B4D65ADB25B75ADF0077E55F /* SearchRepositoriesTableViewAdapter.swift in Sources */,
 				B440F3EE25B62B1300B756BF /* UserDetail.swift in Sources */,
 				B4D65AD025B7502B0077E55F /* SearchRepositoriesViewController.swift in Sources */,
+				B4FCBBED25B8791000E2F205 /* UnderlinedLabel.swift in Sources */,
 				B461768C25B79328005F77EC /* UITableView+Ext.swift in Sources */,
 				B4FCBBE725B8709200E2F205 /* UserDetailInteractor.swift in Sources */,
 				B4C12AD325B61DCA00E19D96 /* BaseContract.swift in Sources */,

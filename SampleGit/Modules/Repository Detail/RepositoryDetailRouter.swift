@@ -38,7 +38,11 @@ class RepositoryDetailRouter {
 }
 
 extension RepositoryDetailRouter: IRepositoryDetailRouter {
-    func navigateToUserDetailScreen(with userName: String, _ repoName: String) {
-        view?.navigationController?.pushViewController(UserDetailRouter.setupModule(with: userName, repoName), animated: true)
+    func navigateToUserDetailScreen(with userName: String) {
+        view?.navigationController?.pushViewController(UserDetailRouter.setupModule(with: userName), animated: true)
+    }
+
+    func navigateToURL(link: String) {
+        UIApplication.shared.openUrl(link)
     }
 }

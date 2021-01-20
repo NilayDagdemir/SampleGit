@@ -12,8 +12,31 @@ class UserDetailInteractor {
 
     // MARK: Properties
     weak var output: IUserDetailInteractorToPresenter?
+    var networkAPI: APIClient?
 }
 
 extension UserDetailInteractor: IUserDetailInteractor {
-    // TODO: Implement use case methods
+    func retrieveUserDetails(with userName: String) {
+        networkAPI?.getUserDetail(with: userName, onSuccess: { [weak self] response in
+            guard let self = self else { return }
+            print("here w response: \(response.results) and res is: \(response)")
+//            if let userDetails = response?.results {
+//                self.output?.userDetailsRecieved(userDetails)
+//            } else {
+//                self.output?.wsErrorOccurred(with: Constants.Error.defaultErrorMessage)
+//            }
+        })
+    }
+
+    func retrieveUserRepositories(with userName: String) {
+        networkAPI?.getUserRepos(with: userName, onSuccess: { [weak self] response in
+            guard let self = self else { return }
+            print("here w response: \(response.results) and res is: \(response)")
+//            if let userRepos = response?.results {
+//                self.output?.userReposRecieved(userRepos)
+//            } else {
+//                self.output?.wsErrorOccurred(with: Constants.Error.defaultErrorMessage)
+//            }
+        })
+    }
 }

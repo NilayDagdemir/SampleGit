@@ -12,13 +12,13 @@ import Alamofire
 enum APIRouter: URLRequestConvertible {
 
     case searchRepositories(_ searchKeywordQuery: String, _ perPage: Int, _ pageNumber: Int)
-    case getRepositoryDetail(_ userName: String)
     case getUserDetail(_ userName: String)
+    case getUserRepos(_ userName: String)
 
     // MARK: - HTTPMethod
     private var method: HTTPMethod {
         switch self {
-        case .searchRepositories, .getRepositoryDetail, .getUserDetail:
+        case .searchRepositories, .getUserRepos, .getUserDetail:
             return .get
         }
     }
@@ -28,7 +28,7 @@ enum APIRouter: URLRequestConvertible {
         switch self {
         case .searchRepositories:
             return "search/repositories"
-        case .getRepositoryDetail(let userName):
+        case .getUserRepos(let userName):
             return "users/\(userName)/repos"
         case .getUserDetail(let userName):
             return "users/\(userName)"

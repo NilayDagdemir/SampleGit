@@ -12,16 +12,18 @@ protocol IUserDetailView: IBaseView {
     // TODO: Declare view methods
 }
 
-protocol IUserDetailPresenter: class {
-    // TODO: Declare presentation methods
+protocol IUserDetailPresenter: IBasePresenter {
+    func setClickedUserName(_ userName: String)
 }
 
 protocol IUserDetailInteractor: class {
-    // TODO: Declare use case methods
+    func retrieveUserDetails(with userName: String)
+    func retrieveUserRepositories(with userName: String)
 }
 
-protocol IUserDetailInteractorToPresenter: class {
-    // TODO: Declare interactor output methods
+protocol IUserDetailInteractorToPresenter: IBaseInteractorToPresenter {
+    func userDetailsRecieved(_ userDetails: UserDetail)
+    func userReposRecieved(_ repoList: [Repository])
 }
 
 protocol IUserDetailRouter: class {

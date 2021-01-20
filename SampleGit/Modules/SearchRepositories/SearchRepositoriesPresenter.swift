@@ -43,8 +43,8 @@ extension SearchRepositoriesPresenter: ISearchRepositoriesPresenter {
         router?.navigateToRepoDetailScreen(with: repoItem)
     }
 
-    func avatarClicked(with userName: String, _ repoName: String) {
-        router?.navigateToUserDetailScreen(with: userName, repoName)
+    func avatarClicked(with userName: String) {
+        router?.navigateToUserDetailScreen(with: userName)
     }
 
     func scrollViewDidScrollTriggered(with scrollPosition: CGFloat) {

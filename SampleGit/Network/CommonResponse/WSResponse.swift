@@ -10,24 +10,9 @@ import Foundation
 
 // MARK: - GitAPIServiceResponse
 struct WSResponse<T: Decodable> {
-    let items: T?
-//    let error: WSError?
-
-    init(_ items: T? = nil) {
-        self.items = items
-//        self.error = error
-    }
-}
-
-// MARK: - GitAPIServiceError
-struct WSError: Codable {
-    let statusCode: Int?
-    let statusMessage: String?
-    let success: Bool?
+    let results: T?
 
     enum CodingKeys: String, CodingKey {
-        case statusCode = "status_code"
-        case statusMessage = "status_message"
-        case success
+        case results
     }
 }

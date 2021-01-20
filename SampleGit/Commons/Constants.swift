@@ -38,7 +38,7 @@ class Constants {
     // MARK: RepositoryDetail
     struct RepositoryDetail {
         // MARK: Repo Detail Card Items
+        static let ownerTypePrefix: String = "Owner Type: "
         static let branchNamePrefix: String = "Default Branch: "
-        static let repoURLPrefix: String = "URL: "
     }
 }

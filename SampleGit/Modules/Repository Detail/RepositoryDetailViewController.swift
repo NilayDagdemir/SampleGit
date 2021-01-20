@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class RepositoryDetailViewController: BaseViewController, StoryboardLoadable {
-
     @IBOutlet private weak var userCardView: UIView!
     @IBOutlet private weak var lblOwnerName: UILabel!
     @IBOutlet private weak var lblOwnerType: UILabel!
@@ -35,29 +34,41 @@ class RepositoryDetailViewController: BaseViewController, StoryboardLoadable {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
+        addTapGestureRecognizerToLink()
         userCardView.addShadow()
         repoDetailView.addShadow()
     }
 
     private func setOwnerCard(with ownerItem: RepoOwner) {
         lblOwnerName.text = ownerItem.name
-        lblOwnerType.text = ownerItem.type
+        lblOwnerType.text = Constants.RepositoryDetail.ownerTypePrefix + "\(ownerItem.type ?? Constants.Error.noOverviewTextExists)"
         if let avatarURL = ownerItem.avatarUrl {
             ImageDownloadManager.shared.downloadOrGetCachedImageForImageView(url: avatarURL,
                                                                              imageView: ownerAvatarImageView)
         }
     }
 
+    private func addTapGestureRecognizerToLink() {
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(repoURLTapped))
+        lblRepoURL.addGestureRecognizer(tapRecognizer)
+    }
+
     private func setRepoDetailCard(with repoItem: Repository) {
         lblRepoName.text = repoItem.name
         lblLanguage.text = repoItem.language
         lblDefaultBranchName.text = Constants.RepositoryDetail.branchNamePrefix + "\(repoItem.defaultBranch ?? Constants.Error.noOverviewTextExists)"
-        lblRepoURL.text = Constants.RepositoryDetail.repoURLPrefix + "\(repoItem.repoUrl ?? Constants.Error.noOverviewTextExists)"
-        print("here url is: \(repoItem.repoUrl ?? Constants.Error.noOverviewTextExists)")
+        lblRepoURL.text = "\(repoItem.repoUrl ?? Constants.Error.noOverviewTextExists)"
+
         repoDescriptionTextView.text = repoItem.repoDescription
         lblWatcherCount.text = "\(repoItem.watcherCount ?? 0)"
         lblStarCount.text = "\(repoItem.starCount ?? 0)"
         lblForkCount.text = "\(repoItem.forkCount ?? 0)"
+    }
+
+    @objc private func repoURLTapped() {
+        if let repoURL = lblRepoURL.text {
+            presenter?.repoURLTapped(with: repoURL)
+        }
     }
 }
 

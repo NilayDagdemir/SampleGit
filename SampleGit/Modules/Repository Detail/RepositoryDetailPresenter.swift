@@ -31,8 +31,12 @@ extension RepositoryDetailPresenter: IRepositoryDetailPresenter {
         return repoDetailItem ?? nil
     }
 
-    func userAvatarClicked(with userName: String, _ repoName: String) {
-        router?.navigateToUserDetailScreen(with: userName, repoName)
+    func userAvatarClicked(with userName: String) {
+        router?.navigateToUserDetailScreen(with: userName)
+    }
+
+    func repoURLTapped(with repoURL: String) {
+        router?.navigateToURL(link: repoURL)
     }
 }
 

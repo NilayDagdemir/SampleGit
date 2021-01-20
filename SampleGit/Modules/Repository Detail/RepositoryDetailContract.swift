@@ -15,7 +15,8 @@ protocol IRepositoryDetailView: IBaseView {
 protocol IRepositoryDetailPresenter: IBasePresenter {
     func setSelectedRepoDetailItem(to repoDetailItem: Repository)
     func getRepoDetailItem() -> Repository?
-    func userAvatarClicked(with userName: String, _ repoName: String)
+    func userAvatarClicked(with userName: String)
+    func repoURLTapped(with repoURL: String)
 }
 
 protocol IRepositoryDetailInteractor: class {
@@ -27,5 +28,6 @@ protocol IRepositoryDetailInteractorToPresenter: class {
 }
 
 protocol IRepositoryDetailRouter: class {
-    func navigateToUserDetailScreen(with userName: String, _ repoName: String)
+    func navigateToUserDetailScreen(with userName: String)
+    func navigateToURL(link: String)
 }

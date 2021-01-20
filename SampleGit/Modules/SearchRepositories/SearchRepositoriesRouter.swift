@@ -44,8 +44,7 @@ extension SearchRepositoriesRouter: ISearchRepositoriesRouter {
         view?.navigationController?.pushViewController(RepositoryDetailRouter.setupModule(with: repoDetailItem), animated: true)
     }
 
-    func navigateToUserDetailScreen(with userName: String, _ repoName: String) {
-        // TODO: navigate to user details
-//        view?.navigationController?.pushViewController(UserDetailRouter.setupModule(with: userName), animated: true)
+    func navigateToUserDetailScreen(with userName: String) {
+        view?.navigationController?.pushViewController(UserDetailRouter.setupModule(with: userName), animated: true)
     }
 }

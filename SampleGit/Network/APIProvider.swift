@@ -15,7 +15,7 @@ class APIProvider: NSObject {
     fileprivate var session = AF
 
     typealias OnSuccess<T: Decodable> = ((WSResponse<T>) -> Void)?
-    typealias OnError = ((WSError?) -> Void)
+    typealias OnError = (() -> Void)
 
     private override init() {
         super.init()
@@ -40,30 +40,13 @@ class APIProvider: NSObject {
             .responseDecodable(of: T.self, decoder: decoder) { (requestResponse) in
                 switch requestResponse.result {
                 case .success:
-                    onSuccess?(WSResponse(requestResponse.value))
+                    onSuccess?(WSResponse(results: requestResponse.value))
                 case .failure:
                     guard let onError = onError else {
-                        onSuccess?(WSResponse(nil))
+                        onSuccess?(WSResponse(results: nil))
                         return
                     }
-                    print("here res is: \(requestResponse) and route: \(route)")
-                    let statusCode = requestResponse.response?.statusCode ?? 500
-                    if statusCode < 500 {
-                        //Client type errors, cast body to Error Class
-                        //HTTP 401 case handled in retry block
-                        do {
-                            guard let data = requestResponse.data else { return onError(nil) }
-                            let wsError = try JSONDecoder().decode(WSError.self, from: data)
-                            onError(wsError)
-                        } catch let error {
-                            print("An error occured: \(error.localizedDescription)")
-                            // Same as HTTP 500 case
-                            onError(nil)
-                        }
-                    } else {
-                        onError(nil)
-                    }
                 }
+            }
         }
-    }
 }

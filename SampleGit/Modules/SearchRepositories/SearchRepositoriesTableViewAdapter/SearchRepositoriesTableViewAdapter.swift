@@ -48,13 +48,7 @@ extension SearchRepositoriesTableViewAdapter: UITableViewDelegate, UITableViewDa
         }
         return UITableViewCell()
     }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-//        print("here did select row at")
-//        presenter.repoCardClicked(with: getFilteredRepos()[indexPath.row])
-    }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return Constants.SearchRepositories.tableViewRowHeight
     }
@@ -78,8 +72,8 @@ extension SearchRepositoriesTableViewAdapter: RepoTableViewCellDelegate {
         presenter.repoCardClicked(with: repoItem)
     }
 
-    func avatarClicked(with userName: String, _ repoName: String) {
-        print("here avatar clicked")
-        presenter.avatarClicked(with: userName, repoName)
+    func avatarClicked(with userName: String) {
+        print("here triggered once")
+        presenter.avatarClicked(with: userName)
     }
 }

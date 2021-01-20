@@ -12,29 +12,25 @@ import Alamofire
 protocol APIClientInterface {
 
     typealias OnSuccess<T: Decodable> = ((WSResponse<T>) -> Void)
-    typealias OnError = ((WSError?) -> Void)?
 
-    func searchRepositories(with searchKeywordQuery: String, perPage: Int, pageNumber: Int, onSuccess: @escaping OnSuccess<RepositoryList>, onError: OnError)
-    func getRepositoryDetail(with userName: String, onSuccess: @escaping OnSuccess<Repository>, onError: OnError)
-    func getUserDetail(with userName: String, onSuccess: @escaping OnSuccess<UserDetail>, onError: OnError)
+    func searchRepositories(with searchKeywordQuery: String, perPage: Int, pageNumber: Int, onSuccess: @escaping OnSuccess<RepositoryList>)
+    func getUserDetail(with userName: String, onSuccess: @escaping OnSuccess<UserDetail>)
+    func getUserRepos(with userName: String, onSuccess: @escaping OnSuccess<RepositoryList>)
 }
 
 class APIClient: APIClientInterface {
-    func searchRepositories(with searchKeywordQuery: String, perPage: Int, pageNumber: Int, onSuccess: @escaping OnSuccess<RepositoryList>, onError: OnError) {
+    func searchRepositories(with searchKeywordQuery: String, perPage: Int, pageNumber: Int, onSuccess: @escaping OnSuccess<RepositoryList>) {
         APIProvider.shared.performRequest(route: .searchRepositories(searchKeywordQuery, perPage, pageNumber),
-                                          onSuccess: onSuccess,
-                                          onError: onError)
+                                          onSuccess: onSuccess)
     }
 
-    func getRepositoryDetail(with searchQuery: String, onSuccess: @escaping OnSuccess<Repository>, onError: OnError) {
-        APIProvider.shared.performRequest(route: .getRepositoryDetail(searchQuery),
-                                          onSuccess: onSuccess,
-                                          onError: onError)
-    }
-
-    func getUserDetail(with userName: String, onSuccess: @escaping OnSuccess<UserDetail>, onError: OnError) {
+    func getUserDetail(with userName: String, onSuccess: @escaping OnSuccess<UserDetail>) {
         APIProvider.shared.performRequest(route: .getUserDetail(userName),
-                                          onSuccess: onSuccess,
-                                          onError: onError)
+                                          onSuccess: onSuccess)
+    }
+
+    func getUserRepos(with userName: String, onSuccess: @escaping OnSuccess<RepositoryList>) {
+        APIProvider.shared.performRequest(route: .getUserRepos(userName),
+                                          onSuccess: onSuccess)
     }
 }
