@@ -43,7 +43,7 @@ struct RepoOwner: Codable {
     let avatarURL: String?
     let type: String?
     let name: String?
-    //add email, maybe?
+    
     enum CodingKeys: String, CodingKey {
         case avatarURL = "avatar_url"
         case name = "login"
