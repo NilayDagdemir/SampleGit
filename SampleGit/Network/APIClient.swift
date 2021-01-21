@@ -14,17 +14,20 @@ protocol APIClientInterface {
     typealias OnSuccess<T: Decodable> = ((WSResponse<T>) -> Void)
 
     func searchRepositories(with searchKeywordQuery: String,
-                            perPage: Int,
-                            pageNumber: Int,
+                            _ perPage: Int,
+                            _ pageNumber: Int,
                             onSuccess: @escaping OnSuccess<RepositoryList>)
     func getUserDetail(with userName: String, onSuccess: @escaping OnSuccess<UserDetail>)
-    func getUserRepos(with userName: String, onSuccess: @escaping OnSuccess<[Repository]>)
+    func getUserRepos(with userName: String,
+                      _ perPage: Int,
+                      _ pageNumber: Int,
+                      onSuccess: @escaping OnSuccess<[Repository]>)
 }
 
 class APIClient: APIClientInterface {
     func searchRepositories(with searchKeywordQuery: String,
-                            perPage: Int,
-                            pageNumber: Int,
+                            _ perPage: Int,
+                            _ pageNumber: Int,
                             onSuccess: @escaping OnSuccess<RepositoryList>) {
         APIProvider.shared.performRequest(route: .searchRepositories(searchKeywordQuery, perPage, pageNumber),
                                           onSuccess: onSuccess)
@@ -35,8 +38,11 @@ class APIClient: APIClientInterface {
                                           onSuccess: onSuccess)
     }
 
-    func getUserRepos(with userName: String, onSuccess: @escaping OnSuccess<[Repository]>) {
-        APIProvider.shared.performRequest(route: .getUserRepos(userName),
+    func getUserRepos(with userName: String,
+                      _ perPage: Int,
+                      _ pageNumber: Int,
+                      onSuccess: @escaping OnSuccess<[Repository]>) {
+        APIProvider.shared.performRequest(route: .getUserRepos(userName, perPage, pageNumber),
                                           onSuccess: onSuccess)
     }
 }

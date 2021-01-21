@@ -12,7 +12,7 @@ open class AppRouter {
 
     public static var shared = AppRouter()
 
-    var window: UIWindow?
+    private var window: UIWindow?
 
     func start() {
         let viewController = SearchRepositoriesRouter.setupModule()

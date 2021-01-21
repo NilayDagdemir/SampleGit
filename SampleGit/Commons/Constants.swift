@@ -44,6 +44,9 @@ class Constants {
     struct UserDetails {
         static let navBarTitle: String = "User Details"
         static let repositoriesSectionTitle: String = "Repositories"
+
+        // MARK: GitHub API Search Parameter
+        static let filteredItemCountPerPage: Int = 35
     }
 
     // MARK: UserDetailTableViewCellTypes

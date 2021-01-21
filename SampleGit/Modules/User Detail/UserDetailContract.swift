@@ -26,14 +26,17 @@ protocol IUserDetailPresenter: IBasePresenter {
 }
 
 protocol IUserDetailInteractor: class {
+    func setItemCountPerPage(with perPage: Int)
     func retrieveUserDetails(with userName: String)
-    func retrieveUserRepositories(with userName: String)
-     func getIsAlreadyFetchingRepos() -> Bool
+    func retrieveUserRepositories(with userName: String, pageNumber: Int)
+    func getIsAlreadyFetchingRepos() -> Bool
 }
 
 protocol IUserDetailInteractorToPresenter: IBaseInteractorToPresenter {
     func userDetailsRecieved(_ userDetails: UserDetail)
     func userReposRecieved(_ repoList: [Repository])
+    func increaseCurrentPage()
+    func noMoreRepoFound()
 }
 
 protocol IUserDetailRouter: class {

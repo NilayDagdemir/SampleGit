@@ -17,7 +17,7 @@ class SearchRepositoriesPresenter {
 
     private var filteredRepos: [Repository] = [Repository]()
     private var latestSearchText: String = ""
-    private var currentPage: Int = 0
+    private var currentPage: Int = 1
 }
 
 extension SearchRepositoriesPresenter: ISearchRepositoriesPresenter {
@@ -25,9 +25,11 @@ extension SearchRepositoriesPresenter: ISearchRepositoriesPresenter {
 
     func filterItems(with searchText: String, _ pageNumber: Int) {
         view?.closeSearchBar()
+        filteredRepos = [Repository]()
+        currentPage = 1
         if searchText != "" {
             latestSearchText = searchText
-            filteredRepos = [Repository]()
+            interactor?.setItemCountPerPage(with: Constants.SearchRepositories.filteredItemCountPerPage)
             fetchData()
         }
     }
@@ -50,9 +52,7 @@ extension SearchRepositoriesPresenter: ISearchRepositoriesPresenter {
 
     func fetchData() {
         if latestSearchText != "" {
-            currentPage += 1
             interactor?.searchRepos(with: latestSearchText,
-                                    perPage: Constants.SearchRepositories.filteredItemCountPerPage,
                                     pageNumber: currentPage)
         }
     }
@@ -80,5 +80,13 @@ extension SearchRepositoriesPresenter: ISearchRepositoriesInteractorToPresenter 
         if filteredRepos.isEmpty {
             view?.showErrorDialog(with: Constants.Error.noRepoFound)
         }
+    }
+
+    func increaseCurrentPage() {
+        currentPage += 1
+    }
+
+    func noMoreRepoFound() {
+        view?.clearSpinnerView()
     }
 }

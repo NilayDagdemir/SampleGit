@@ -15,9 +15,14 @@ class UserDetailInteractor {
     var networkAPI: APIClient?
 
     private var isAlreadyFetchingRepos: Bool = false
+    private var itemCountPerPage: Int = 0
 }
 
 extension UserDetailInteractor: IUserDetailInteractor {
+    func setItemCountPerPage(with perPage: Int) {
+        itemCountPerPage = perPage
+    }
+
     func getIsAlreadyFetchingRepos() -> Bool {
         return isAlreadyFetchingRepos
     }
@@ -33,13 +38,27 @@ extension UserDetailInteractor: IUserDetailInteractor {
         })
     }
 
-    func retrieveUserRepositories(with userName: String) {
+    func retrieveUserRepositories(with userName: String, pageNumber: Int) {
         if !isAlreadyFetchingRepos {
             isAlreadyFetchingRepos = true
-            networkAPI?.getUserRepos(with: userName, onSuccess: { [weak self] response in
+            networkAPI?.getUserRepos(with: userName,
+                                     itemCountPerPage,
+                                     pageNumber,
+                                     onSuccess: { [weak self] response in
                 guard let self = self else { return }
                 if let userRepos = response.results {
-                    self.output?.userReposRecieved(userRepos)
+                    if userRepos.isEmpty {
+                        if self.itemCountPerPage != 0 {
+                            self.isAlreadyFetchingRepos = false
+                            self.itemCountPerPage -= 1
+                            self.retrieveUserRepositories(with: userName, pageNumber: pageNumber)
+                        } else {
+                            self.output?.noMoreRepoFound()
+                        }
+                    } else {
+                        self.output?.increaseCurrentPage()
+                        self.output?.userReposRecieved(userRepos)
+                    }
                 } else {
                     self.output?.wsErrorOccurred(with: Constants.Error.defaultErrorMessage)
                 }

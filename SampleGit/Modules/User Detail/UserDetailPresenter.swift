@@ -18,7 +18,7 @@ class UserDetailPresenter {
     private var userName: String?
     private var userDetail: UserDetail?
     private var userRepos: [Repository] = [Repository]()
-    private var currentPage: Int = 0
+    private var currentPage: Int = 1
 }
 
 extension UserDetailPresenter: IUserDetailPresenter {
@@ -26,7 +26,9 @@ extension UserDetailPresenter: IUserDetailPresenter {
         view?.showProgressHUD()
         if let userName = userName {
             interactor?.retrieveUserDetails(with: userName)
-            interactor?.retrieveUserRepositories(with: userName)
+            interactor?.setItemCountPerPage(with: Constants.UserDetails.filteredItemCountPerPage)
+            interactor?.retrieveUserRepositories(with: userName,
+                                                 pageNumber: currentPage)
         }
     }
 
@@ -47,13 +49,10 @@ extension UserDetailPresenter: IUserDetailPresenter {
     }
 
     func fetchUserRepos() {
-        view?.showProgressHUD()
-        // TODO: pageNumber ve count gerekiyor mu?
         if let userName = userName {
-            currentPage += 1
-            interactor?.retrieveUserRepositories(with: userName)
+            interactor?.retrieveUserRepositories(with: userName,
+                                                 pageNumber: currentPage)
         }
-        //interactor?.searchRepos(with: latestSearchText, perPage: Constants.SearchRepositories.filteredItemCountPerPage, pageNumber: currentPage)
     }
 
     func repoURLTapped(with repoURL: String) {
@@ -77,14 +76,24 @@ extension UserDetailPresenter: IUserDetailInteractorToPresenter {
 
     func userDetailsRecieved(_ userDetails: UserDetail) {
         self.userDetail = userDetails
+        view?.hideProgressHUD()
     }
 
     func userReposRecieved(_ repoList: [Repository]) {
         self.userRepos.append(contentsOf: repoList)
         view?.hideProgressHUD()
+        view?.clearSpinnerView()
         view?.reloadTableView()
         if userRepos.isEmpty {
             view?.showErrorDialog(with: Constants.Error.noRepoFound)
         }
+    }
+
+    func increaseCurrentPage() {
+        currentPage += 1
+    }
+
+    func noMoreRepoFound() {
+        view?.clearSpinnerView()
     }
 }

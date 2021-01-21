@@ -13,7 +13,7 @@ enum APIRouter: URLRequestConvertible {
 
     case searchRepositories(_ searchKeywordQuery: String, _ perPage: Int, _ pageNumber: Int)
     case getUserDetail(_ userName: String)
-    case getUserRepos(_ userName: String)
+    case getUserRepos(_ userName: String, _ perPage: Int, _ pageNumber: Int)
 
     // MARK: - HTTPMethod
     private var method: HTTPMethod {
@@ -28,7 +28,7 @@ enum APIRouter: URLRequestConvertible {
         switch self {
         case .searchRepositories:
             return "search/repositories"
-        case .getUserRepos(let userName):
+        case .getUserRepos(let userName, _, _):
             return "users/\(userName)/repos"
         case .getUserDetail(let userName):
             return "users/\(userName)"
@@ -51,6 +51,9 @@ enum APIRouter: URLRequestConvertible {
         case .searchRepositories(let searchKeywordQuery, let perPage, let pageNumber):
             return ["q": searchKeywordQuery,
                     "per_page": perPage,
+                    "page": pageNumber]
+        case .getUserRepos(_, let perPage, let pageNumber):
+            return ["per_page": perPage,
                     "page": pageNumber]
         default:
             return nil

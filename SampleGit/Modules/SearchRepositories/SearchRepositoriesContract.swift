@@ -32,12 +32,15 @@ protocol ISearchRepositoriesPresenter: IBasePresenter {
 }
 
 protocol ISearchRepositoriesInteractor: class {
-    func searchRepos(with searchText: String, perPage: Int, pageNumber: Int)
+    func setItemCountPerPage(with perPage: Int)
+    func searchRepos(with searchText: String, pageNumber: Int)
     func getIsAlreadyFetchingRepos() -> Bool
 }
 
 protocol ISearchRepositoriesInteractorToPresenter: IBaseInteractorToPresenter {
     func repoListFiltered(_ repoList: [Repository])
+    func increaseCurrentPage()
+    func noMoreRepoFound()
 }
 
 protocol ISearchRepositoriesRouter: class {
