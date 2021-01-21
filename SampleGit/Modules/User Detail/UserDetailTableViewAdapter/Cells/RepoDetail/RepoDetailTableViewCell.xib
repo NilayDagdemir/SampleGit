@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JKe-Ql-f87" userLabel="Repo Detail Card Base" customClass="CardViewBase" customModule="SampleGit" customModuleProvider="target">
-                        <rect key="frame" x="15" y="0.0" width="315" height="295"/>
+                        <rect key="frame" x="15" y="10" width="315" height="300"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_repo" translatesAutoresizingMaskIntoConstraints="NO" id="NyL-zG-2RJ" userLabel="Repo Icon Image View">
                                 <rect key="frame" x="135" y="6" width="50" height="50"/>
@@ -70,8 +70,8 @@
                                 <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nEh-fA-orW">
-                                <rect key="frame" x="77" y="253" width="161" height="24"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nEh-fA-orW">
+                                <rect key="frame" x="78.333333333333314" y="268" width="152" height="24"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons_watcher" translatesAutoresizingMaskIntoConstraints="NO" id="D5a-Ti-VKb" userLabel="Watchers Image View">
                                         <rect key="frame" x="0.0" y="2" width="20" height="20"/>
@@ -81,9 +81,9 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjZ-fX-Dz0" userLabel="Watchers Count Label">
-                                        <rect key="frame" x="30" y="0.0" width="22" height="24"/>
+                                        <rect key="frame" x="25" y="0.0" width="30" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="22" id="neX-JL-mxT"/>
+                                            <constraint firstAttribute="width" constant="30" id="neX-JL-mxT"/>
                                             <constraint firstAttribute="height" constant="24" id="t3a-cw-cjj"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -91,16 +91,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_star" translatesAutoresizingMaskIntoConstraints="NO" id="hF0-pI-soX" userLabel="Star Image View">
-                                        <rect key="frame" x="62" y="2" width="20" height="20"/>
+                                        <rect key="frame" x="60.000000000000014" y="2" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="7Bw-Yj-poR"/>
                                             <constraint firstAttribute="height" constant="20" id="hHS-cF-6ex"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNl-UC-pAA" userLabel="Star Count Label">
-                                        <rect key="frame" x="92" y="0.0" width="22" height="24"/>
+                                        <rect key="frame" x="85.000000000000014" y="0.0" width="30" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="22" id="0Kd-oz-DeV"/>
+                                            <constraint firstAttribute="width" constant="30" id="0Kd-oz-DeV"/>
                                             <constraint firstAttribute="height" constant="24" id="1qz-w2-HGj"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -108,16 +108,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_fork" translatesAutoresizingMaskIntoConstraints="NO" id="HTs-fv-3Xi" userLabel="Fork Image View">
-                                        <rect key="frame" x="124" y="2" width="20" height="20"/>
+                                        <rect key="frame" x="120" y="2" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="LCF-MF-38w"/>
                                             <constraint firstAttribute="width" constant="20" id="lho-bh-Hmk"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PP9-1X-ZII" userLabel="Fork Count Label">
-                                        <rect key="frame" x="154" y="0.0" width="7" height="24"/>
+                                        <rect key="frame" x="145" y="0.0" width="7" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="22" id="G37-xe-oyj"/>
+                                            <constraint firstAttribute="width" constant="30" id="G37-xe-oyj"/>
                                             <constraint firstAttribute="height" constant="24" id="s3d-A9-MuW"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -130,10 +130,10 @@
                                 </constraints>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Repo Description" translatesAutoresizingMaskIntoConstraints="NO" id="RYt-zu-ErT" userLabel="Repo Description">
-                                <rect key="frame" x="12" y="191" width="300" height="54"/>
+                                <rect key="frame" x="12" y="191" width="300" height="65"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="elZ-wf-g5Y"/>
+                                    <constraint firstAttribute="height" constant="65" id="elZ-wf-g5Y"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -149,9 +149,9 @@
                             <constraint firstItem="EjL-6k-sym" firstAttribute="leading" secondItem="JKe-Ql-f87" secondAttribute="leading" constant="8" id="8kH-qG-cqD"/>
                             <constraint firstItem="UYj-KF-5xW" firstAttribute="leading" secondItem="JKe-Ql-f87" secondAttribute="leading" constant="12" id="AuV-BH-n1e"/>
                             <constraint firstItem="UYj-KF-5xW" firstAttribute="top" secondItem="3ck-ia-SxU" secondAttribute="bottom" constant="8" id="I1W-wv-eym"/>
-                            <constraint firstItem="nEh-fA-orW" firstAttribute="centerX" secondItem="JKe-Ql-f87" secondAttribute="centerX" id="IdE-A6-gEv"/>
-                            <constraint firstAttribute="height" constant="295" id="KWL-os-Ep5"/>
-                            <constraint firstAttribute="bottom" secondItem="nEh-fA-orW" secondAttribute="bottom" constant="18" id="OSK-KV-fYc"/>
+                            <constraint firstItem="nEh-fA-orW" firstAttribute="centerX" secondItem="JKe-Ql-f87" secondAttribute="centerX" constant="-3.3333333333333428" id="IdE-A6-gEv"/>
+                            <constraint firstAttribute="height" constant="300" id="KWL-os-Ep5"/>
+                            <constraint firstAttribute="bottom" secondItem="nEh-fA-orW" secondAttribute="bottom" constant="8" id="OSK-KV-fYc"/>
                             <constraint firstItem="3ck-ia-SxU" firstAttribute="top" secondItem="E1j-Ju-iw2" secondAttribute="bottom" constant="8" id="OoH-8M-tYN"/>
                             <constraint firstItem="E1j-Ju-iw2" firstAttribute="leading" secondItem="JKe-Ql-f87" secondAttribute="leading" constant="12" id="Q5M-tJ-gmV"/>
                             <constraint firstItem="RYt-zu-ErT" firstAttribute="top" secondItem="UYj-KF-5xW" secondAttribute="bottom" constant="4" id="Vld-cA-sim"/>
@@ -161,7 +161,7 @@
                             <constraint firstAttribute="trailing" secondItem="UYj-KF-5xW" secondAttribute="trailing" constant="3" id="YeC-sw-pyR"/>
                             <constraint firstItem="EjL-6k-sym" firstAttribute="top" secondItem="NyL-zG-2RJ" secondAttribute="bottom" constant="4" id="YmH-sW-vOc"/>
                             <constraint firstItem="NyL-zG-2RJ" firstAttribute="top" secondItem="JKe-Ql-f87" secondAttribute="top" constant="6" id="e3R-dz-tLP"/>
-                            <constraint firstItem="nEh-fA-orW" firstAttribute="top" secondItem="RYt-zu-ErT" secondAttribute="bottom" constant="8" id="gpO-wf-iQT"/>
+                            <constraint firstItem="nEh-fA-orW" firstAttribute="top" secondItem="RYt-zu-ErT" secondAttribute="bottom" constant="12" id="gpO-wf-iQT"/>
                             <constraint firstAttribute="trailing" secondItem="RYt-zu-ErT" secondAttribute="trailing" constant="3" id="pbY-WD-o7x"/>
                             <constraint firstItem="3ck-ia-SxU" firstAttribute="leading" secondItem="JKe-Ql-f87" secondAttribute="leading" constant="12" id="tgF-iF-aQL"/>
                             <constraint firstItem="E1j-Ju-iw2" firstAttribute="top" secondItem="d7D-S5-jLd" secondAttribute="bottom" constant="15" id="uZH-ZM-JSq"/>
@@ -171,9 +171,9 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="JKe-Ql-f87" secondAttribute="bottom" constant="30" id="QEN-pA-XUF"/>
+                    <constraint firstAttribute="bottom" secondItem="JKe-Ql-f87" secondAttribute="bottom" constant="15" id="QEN-pA-XUF"/>
                     <constraint firstAttribute="trailing" secondItem="JKe-Ql-f87" secondAttribute="trailing" constant="15" id="V3B-2r-XnZ"/>
-                    <constraint firstItem="JKe-Ql-f87" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="buw-qi-bwf"/>
+                    <constraint firstItem="JKe-Ql-f87" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="buw-qi-bwf"/>
                     <constraint firstItem="JKe-Ql-f87" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="jDa-3R-Zjn"/>
                 </constraints>
             </tableViewCellContentView>

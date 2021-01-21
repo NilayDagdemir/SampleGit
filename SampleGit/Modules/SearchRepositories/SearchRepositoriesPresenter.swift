@@ -49,8 +49,6 @@ extension SearchRepositoriesPresenter: ISearchRepositoriesPresenter {
 
     func fetchData() {
         if latestSearchText != "" {
-            view?.showProgressHUD()
-            print("here to fetch!")
             currentPage += 1
             interactor?.searchRepos(with: latestSearchText,
                                     perPage: Constants.SearchRepositories.filteredItemCountPerPage,

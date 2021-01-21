@@ -82,6 +82,14 @@ extension UserDetailTableViewAdapter: UITableViewDelegate, UITableViewDataSource
         return UITableViewCell()
     }
 
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == Constants.UserDetailTableViewCellTypes.userRepo.rawValue {
+            return Constants.UserDetails.repositoriesSectionTitle
+        } else {
+            return nil
+        }
+    }
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }

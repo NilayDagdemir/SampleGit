@@ -41,20 +41,17 @@ extension UserDetailViewController: IUserDetailView {
         userDetailTableView?.reloadData()
     }
 
-    func clearSpinnerView() {
-        if userDetailTableView.tableFooterView != nil {
-            userDetailTableView.tableFooterView = nil
+    func scrollViewScrolled(with scrollPosition: CGFloat, _ scrollHeight: CGFloat) {
+        userDetailTableView.addFooterSpinner()
+        if scrollPosition > (userDetailTableView.contentSize.height - 100 - scrollHeight),
+            presenter?.itemExistsOnTableView() ?? false {
+            presenter?.fetchUserRepos()
         }
     }
 
-    func scrollViewScrolled(with scrollPosition: CGFloat, _ scrollHeight: CGFloat) {
-        print("here offset: \(scrollPosition)")
-        print(" here: frame. \(userDetailTableView.contentSize.height - 100 - scrollHeight)) and item exist? :\(presenter?.itemExistsOnTableView())")
-        userDetailTableView.tableFooterView = getSpinnerView()
-        if scrollPosition > (userDetailTableView.contentSize.height - 100 - scrollHeight),
-            presenter?.itemExistsOnTableView() ?? false {
-            print("here time to fetch data from scroll view!")
-            presenter?.fetchUserRepos()
+    func clearSpinnerView() {
+        if userDetailTableView.tableFooterView != nil {
+            userDetailTableView.removeFooterSpinner()
         }
     }
 }

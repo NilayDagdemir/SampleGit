@@ -26,4 +26,24 @@ extension UITableView {
             register(nibFromClass(cell), forCellReuseIdentifier: cell.nameOfClass)
         }
     }
+
+    func addFooterSpinner() {
+        if let topMostViewController = UIApplication.shared.keyWindow?.rootViewController {
+            let footerView = UIView(frame: CGRect(x: 0,
+                                                  y: 0,
+                                                  width: topMostViewController.view.frame.size.width,
+                                                  height: 100))
+            let spinner = UIActivityIndicatorView()
+            spinner.center = footerView.center
+            footerView.addSubview(spinner)
+            spinner.startAnimating()
+
+            tableFooterView = footerView
+        }
+    }
+
+    func removeFooterSpinner() {
+        print("here to remove footer spinner")
+        tableFooterView = nil
+    }
 }

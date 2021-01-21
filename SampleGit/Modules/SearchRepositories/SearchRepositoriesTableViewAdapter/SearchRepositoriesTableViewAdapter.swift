@@ -70,7 +70,6 @@ extension SearchRepositoriesTableViewAdapter: RepoTableViewCellDelegate {
 
 extension SearchRepositoriesTableViewAdapter: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("here triggered! and already getting repos? : \(getIsAlreadyFetchingRepos())")
         guard !(getIsAlreadyFetchingRepos()) else {
             // we are already fetching more repos
             return

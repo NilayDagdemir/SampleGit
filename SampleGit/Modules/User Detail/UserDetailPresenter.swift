@@ -47,7 +47,6 @@ extension UserDetailPresenter: IUserDetailPresenter {
     }
 
     func fetchUserRepos() {
-        print("here to fetch repos")
         view?.showProgressHUD()
         // TODO: pageNumber ve count gerekiyor mu?
         if let userName = userName {
