@@ -43,7 +43,6 @@ extension UITableView {
     }
 
     func removeFooterSpinner() {
-        print("here to remove footer spinner")
         tableFooterView = nil
     }
 }

@@ -80,7 +80,7 @@ extension UserDetailPresenter: IUserDetailInteractorToPresenter {
     }
 
     func userReposRecieved(_ repoList: [Repository]) {
-        self.userRepos = repoList
+        self.userRepos.append(contentsOf: repoList)
         view?.hideProgressHUD()
         view?.reloadTableView()
         if userRepos.isEmpty {

@@ -27,6 +27,7 @@ extension SearchRepositoriesPresenter: ISearchRepositoriesPresenter {
         view?.closeSearchBar()
         if searchText != "" {
             latestSearchText = searchText
+            filteredRepos = [Repository]()
             fetchData()
         }
     }
@@ -72,7 +73,7 @@ extension SearchRepositoriesPresenter: ISearchRepositoriesInteractorToPresenter 
     }
 
     func repoListFiltered(_ repoList: [Repository]) {
-        self.filteredRepos = repoList
+        self.filteredRepos.append(contentsOf: repoList)
         view?.hideProgressHUD()
         view?.clearSpinnerView()
         view?.reloadTableView()
