@@ -13,20 +13,30 @@ class SearchRepositoriesInteractor {
     // MARK: Properties
     weak var output: ISearchRepositoriesInteractorToPresenter?
     var networkAPI: APIClientInterface?
+
+    private var isAlreadyFetchingRepos: Bool = false
 }
 
 extension SearchRepositoriesInteractor: ISearchRepositoriesInteractor {
+    func getIsAlreadyFetchingRepos() -> Bool {
+        return isAlreadyFetchingRepos
+    }
+
     func searchRepos(with searchText: String, perPage: Int, pageNumber: Int) {
-        networkAPI?.searchRepositories(with: searchText,
-                                       perPage: perPage,
-                                       pageNumber: pageNumber,
-                                       onSuccess: { [weak self] response in
-            guard let self = self else { return }
-            if let filteredList = response.results?.items {
-                self.output?.repoListFiltered(filteredList)
-            } else {
-                self.output?.wsErrorOccurred(with: Constants.Error.defaultErrorMessage)
-            }
-        })
+        if !isAlreadyFetchingRepos {
+            isAlreadyFetchingRepos = true
+            networkAPI?.searchRepositories(with: searchText,
+                                           perPage: perPage,
+                                           pageNumber: pageNumber,
+                                           onSuccess: { [weak self] response in
+                guard let self = self else { return }
+                if let filteredList = response.results?.items {
+                    self.output?.repoListFiltered(filteredList)
+                } else {
+                    self.output?.wsErrorOccurred(with: Constants.Error.defaultErrorMessage)
+                }
+                self.isAlreadyFetchingRepos = false
+            })
+        }
     }
 }

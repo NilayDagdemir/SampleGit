@@ -18,6 +18,7 @@ class UserDetailPresenter {
     private var userName: String?
     private var userDetail: UserDetail?
     private var userRepos: [Repository] = [Repository]()
+    private var currentPage: Int = 0
 }
 
 extension UserDetailPresenter: IUserDetailPresenter {
@@ -45,15 +46,12 @@ extension UserDetailPresenter: IUserDetailPresenter {
         return !(userRepos.isEmpty)
     }
 
-    func scrollViewDidScrollTriggered(with scrollPosition: CGFloat) {
-        view?.scrollViewScrolled(with: scrollPosition)
-    }
-
     func fetchUserRepos() {
         print("here to fetch repos")
         view?.showProgressHUD()
         // TODO: pageNumber ve count gerekiyor mu?
         if let userName = userName {
+            currentPage += 1
             interactor?.retrieveUserRepositories(with: userName)
         }
         //interactor?.searchRepos(with: latestSearchText, perPage: Constants.SearchRepositories.filteredItemCountPerPage, pageNumber: currentPage)
@@ -61,6 +59,14 @@ extension UserDetailPresenter: IUserDetailPresenter {
 
     func repoURLTapped(with repoURL: String) {
         router?.navigateToURL(link: repoURL)
+    }
+
+    func tableViewScrolled(with scrollPosition: CGFloat, _ scrollHeight: CGFloat) {
+        view?.scrollViewScrolled(with: scrollPosition, scrollHeight)
+    }
+
+    func getIsAlreadyFetchingRepos() -> Bool {
+        return interactor?.getIsAlreadyFetchingRepos() ?? false
     }
 }
 

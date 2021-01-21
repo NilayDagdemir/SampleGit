@@ -13,9 +13,15 @@ class UserDetailInteractor {
     // MARK: Properties
     weak var output: IUserDetailInteractorToPresenter?
     var networkAPI: APIClient?
+
+    private var isAlreadyFetchingRepos: Bool = false
 }
 
 extension UserDetailInteractor: IUserDetailInteractor {
+    func getIsAlreadyFetchingRepos() -> Bool {
+        return isAlreadyFetchingRepos
+    }
+
     func retrieveUserDetails(with userName: String) {
         networkAPI?.getUserDetail(with: userName, onSuccess: { [weak self] response in
             guard let self = self else { return }
@@ -28,13 +34,17 @@ extension UserDetailInteractor: IUserDetailInteractor {
     }
 
     func retrieveUserRepositories(with userName: String) {
-        networkAPI?.getUserRepos(with: userName, onSuccess: { [weak self] response in
-            guard let self = self else { return }
-            if let userRepos = response.results {
-                self.output?.userReposRecieved(userRepos)
-            } else {
-                self.output?.wsErrorOccurred(with: Constants.Error.defaultErrorMessage)
-            }
-        })
+        if !isAlreadyFetchingRepos {
+            isAlreadyFetchingRepos = true
+            networkAPI?.getUserRepos(with: userName, onSuccess: { [weak self] response in
+                guard let self = self else { return }
+                if let userRepos = response.results {
+                    self.output?.userReposRecieved(userRepos)
+                } else {
+                    self.output?.wsErrorOccurred(with: Constants.Error.defaultErrorMessage)
+                }
+                self.isAlreadyFetchingRepos = false
+            })
+        }
     }
 }

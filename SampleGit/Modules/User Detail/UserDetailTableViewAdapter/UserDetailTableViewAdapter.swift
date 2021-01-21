@@ -91,17 +91,21 @@ extension UserDetailTableViewAdapter: UITableViewDelegate, UITableViewDataSource
     }
 }
 
-extension UserDetailTableViewAdapter: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.panGestureRecognizer.state == .began {
-            let scrollPosition = scrollView.contentOffset.y
-            presenter.scrollViewDidScrollTriggered(with: scrollPosition)
-        }
-    }
-}
-
 extension UserDetailTableViewAdapter: RepoDetailTableViewCellDelegate {
     func repoURLTapped(with repoURL: String) {
         presenter.repoURLTapped(with: repoURL)
+    }
+}
+
+extension UserDetailTableViewAdapter: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard !(presenter.getIsAlreadyFetchingRepos()) else {
+            // we already fetching more repos
+            return
+        }
+
+        if scrollView.panGestureRecognizer.state == .began {
+            presenter.tableViewScrolled(with: scrollView.contentOffset.y, scrollView.frame.size.height)
+        }
     }
 }

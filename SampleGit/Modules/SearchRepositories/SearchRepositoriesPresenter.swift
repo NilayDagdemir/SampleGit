@@ -17,7 +17,7 @@ class SearchRepositoriesPresenter {
 
     private var filteredRepos: [Repository] = [Repository]()
     private var latestSearchText: String = ""
-    private var currentPage: Int = 1
+    private var currentPage: Int = 0
 }
 
 extension SearchRepositoriesPresenter: ISearchRepositoriesPresenter {
@@ -47,18 +47,23 @@ extension SearchRepositoriesPresenter: ISearchRepositoriesPresenter {
         router?.navigateToUserDetailScreen(with: userName)
     }
 
-    func scrollViewDidScrollTriggered(with scrollPosition: CGFloat) {
-        view?.scrollViewScrolled(with: scrollPosition)
-    }
-
     func fetchData() {
         if latestSearchText != "" {
             view?.showProgressHUD()
             print("here to fetch!")
+            currentPage += 1
             interactor?.searchRepos(with: latestSearchText,
                                     perPage: Constants.SearchRepositories.filteredItemCountPerPage,
                                     pageNumber: currentPage)
         }
+    }
+
+    func tableViewScrolled(with scrollPosition: CGFloat, _ scrollHeight: CGFloat) {
+        view?.scrollViewScrolled(with: scrollPosition, scrollHeight)
+    }
+
+    func getIsAlreadyFetchingRepos() -> Bool {
+        return interactor?.getIsAlreadyFetchingRepos() ?? false
     }
 }
 
@@ -70,8 +75,8 @@ extension SearchRepositoriesPresenter: ISearchRepositoriesInteractorToPresenter 
 
     func repoListFiltered(_ repoList: [Repository]) {
         self.filteredRepos = repoList
-        currentPage += 1
         view?.hideProgressHUD()
+        view?.clearSpinnerView()
         view?.reloadTableView()
         if filteredRepos.isEmpty {
             view?.showErrorDialog(with: Constants.Error.noRepoFound)

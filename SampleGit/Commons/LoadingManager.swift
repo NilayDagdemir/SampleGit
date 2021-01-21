@@ -20,7 +20,7 @@ class LoadingManager: NSObject {
     }
 
     func setupLoadingIndicator() {
-        indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
         indicator.style = UIActivityIndicatorView.Style.whiteLarge
         if let topMostViewController = UIApplication.shared.keyWindow?.rootViewController {
             indicator.center = topMostViewController.view.center
@@ -36,5 +36,9 @@ class LoadingManager: NSObject {
     func hideLoadingProgress() {
         indicator.stopAnimating()
         indicator.hidesWhenStopped = true
+    }
+
+    func getSpinnerView() -> UIView {
+        return indicator
     }
 }

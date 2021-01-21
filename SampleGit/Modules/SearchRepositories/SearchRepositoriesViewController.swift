@@ -63,11 +63,20 @@ extension SearchRepositoriesViewController: ISearchRepositoriesView {
                                                             action: #selector(showSearchBar))
     }
 
-    func scrollViewScrolled(with scrollPosition: CGFloat) {
-        print("here scroll pos: \(scrollPosition) , and tv content size: \(filteredRepositoriesTableView.contentSize.height)")
-        if scrollPosition > filteredRepositoriesTableView.contentSize.height - 100,
+    func scrollViewScrolled(with scrollPosition: CGFloat, _ scrollHeight: CGFloat) {
+        print("here offset: \(scrollPosition)")
+        print(" here: frame. \(filteredRepositoriesTableView.contentSize.height - 100 - scrollHeight)) and item exist? :\(presenter?.itemExistsOnTableView())")
+        filteredRepositoriesTableView.tableFooterView = getSpinnerView()
+        if scrollPosition > (filteredRepositoriesTableView.contentSize.height - 100 - scrollHeight),
             presenter?.itemExistsOnTableView() ?? false {
+            print("here time to fetch data from scroll view!")
             presenter?.fetchData()
+        }
+    }
+
+    func clearSpinnerView() {
+        if filteredRepositoriesTableView.tableFooterView != nil {
+            filteredRepositoriesTableView.tableFooterView = nil
         }
     }
 }

@@ -29,6 +29,10 @@ extension UIViewController: IBaseView {
         self.present(alert, animated: true, completion: nil)
 
     }
+
+    func getSpinnerView() -> UIView {
+        LoadingManager.shared.getSpinnerView()
+    }
 }
 
 protocol IBasePresenter: class {

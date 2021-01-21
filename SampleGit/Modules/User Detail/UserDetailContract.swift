@@ -10,7 +10,8 @@ import UIKit
 
 protocol IUserDetailView: IBaseView {
     func reloadTableView()
-    func scrollViewScrolled(with scrollPosition: CGFloat)
+    func scrollViewScrolled(with scrollPosition: CGFloat, _ scrollHeight: CGFloat) 
+    func clearSpinnerView()
 }
 
 protocol IUserDetailPresenter: IBasePresenter {
@@ -18,14 +19,16 @@ protocol IUserDetailPresenter: IBasePresenter {
     func getUserDetail() -> UserDetail?
     func getUserRepos() -> [Repository]
     func itemExistsOnTableView() -> Bool
-    func scrollViewDidScrollTriggered(with scrollPosition: CGFloat)
     func fetchUserRepos()
     func repoURLTapped(with repoURL: String)
+    func tableViewScrolled(with scrollPosition: CGFloat, _ scrollHeight: CGFloat)
+    func getIsAlreadyFetchingRepos() -> Bool
 }
 
 protocol IUserDetailInteractor: class {
     func retrieveUserDetails(with userName: String)
     func retrieveUserRepositories(with userName: String)
+     func getIsAlreadyFetchingRepos() -> Bool
 }
 
 protocol IUserDetailInteractorToPresenter: IBaseInteractorToPresenter {

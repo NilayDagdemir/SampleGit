@@ -24,6 +24,10 @@ extension SearchRepositoriesTableViewAdapter: IBaseAdapter {
     func getFilteredRepos() -> [Repository] {
         return presenter.getFilteredRepos()
     }
+
+    func getIsAlreadyFetchingRepos() -> Bool {
+        return presenter.getIsAlreadyFetchingRepos()
+    }
 }
 
 extension SearchRepositoriesTableViewAdapter: UITableViewDelegate, UITableViewDataSource {
@@ -54,15 +58,6 @@ extension SearchRepositoriesTableViewAdapter: UITableViewDelegate, UITableViewDa
     }
 }
 
-extension SearchRepositoriesTableViewAdapter: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.panGestureRecognizer.state == .began {
-            let scrollPosition = scrollView.contentOffset.y
-            presenter.scrollViewDidScrollTriggered(with: scrollPosition)
-        }
-    }
-}
-
 extension SearchRepositoriesTableViewAdapter: RepoTableViewCellDelegate {
     func repoCardClicked(with repoItem: Repository) {
         presenter.repoCardClicked(with: repoItem)
@@ -70,5 +65,18 @@ extension SearchRepositoriesTableViewAdapter: RepoTableViewCellDelegate {
 
     func avatarClicked(with userName: String) {
         presenter.avatarClicked(with: userName)
+    }
+}
+
+extension SearchRepositoriesTableViewAdapter: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("here triggered! and already getting repos? : \(getIsAlreadyFetchingRepos())")
+        guard !(getIsAlreadyFetchingRepos()) else {
+            // we are already fetching more repos
+            return
+        }
+        if scrollView.panGestureRecognizer.state == .began {
+            presenter.tableViewScrolled(with: scrollView.contentOffset.y, scrollView.frame.size.height)
+        }
     }
 }

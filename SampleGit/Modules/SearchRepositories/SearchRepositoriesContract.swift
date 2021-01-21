@@ -16,7 +16,8 @@ protocol RepoTableViewCellDelegate: AnyObject {
 protocol ISearchRepositoriesView: IBaseView {
     func reloadTableView()
     func closeSearchBar()
-    func scrollViewScrolled(with scrollPosition: CGFloat)
+    func clearSpinnerView()
+    func scrollViewScrolled(with scrollPosition: CGFloat, _ scrollHeight: CGFloat)
 }
 
 protocol ISearchRepositoriesPresenter: IBasePresenter {
@@ -25,12 +26,14 @@ protocol ISearchRepositoriesPresenter: IBasePresenter {
     func itemExistsOnTableView() -> Bool
     func repoCardClicked(with repoItem: Repository)
     func avatarClicked(with userName: String)
-    func scrollViewDidScrollTriggered(with scrollPosition: CGFloat)
     func fetchData()
+    func tableViewScrolled(with scrollPosition: CGFloat, _ scrollHeight: CGFloat) 
+    func getIsAlreadyFetchingRepos() -> Bool
 }
 
 protocol ISearchRepositoriesInteractor: class {
     func searchRepos(with searchText: String, perPage: Int, pageNumber: Int)
+    func getIsAlreadyFetchingRepos() -> Bool
 }
 
 protocol ISearchRepositoriesInteractorToPresenter: IBaseInteractorToPresenter {
