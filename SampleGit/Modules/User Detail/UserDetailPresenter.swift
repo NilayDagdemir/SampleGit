@@ -26,9 +26,9 @@ extension UserDetailPresenter: IUserDetailPresenter {
         view?.showProgressHUD()
         if let userName = userName {
             interactor?.retrieveUserDetails(with: userName)
-            print("here to retreive user repos 0")
             interactor?.retrieveUserRepositories(with: userName,
-                                                 pageNumber: currentPage)
+                                                 pageNumber: currentPage,
+                                                 calledFromScroll: false)
         }
     }
 
@@ -50,9 +50,9 @@ extension UserDetailPresenter: IUserDetailPresenter {
 
     func fetchUserRepos() {
         if let userName = userName {
-            print("here to retreive user repos")
             interactor?.retrieveUserRepositories(with: userName,
-                                                 pageNumber: currentPage)
+                                                 pageNumber: currentPage,
+                                                 calledFromScroll: true)
         }
     }
 
@@ -81,7 +81,7 @@ extension UserDetailPresenter: IUserDetailInteractorToPresenter {
     }
 
     func userReposRecieved(_ repoList: [Repository]) {
-        self.userRepos.append(contentsOf: repoList)
+        userRepos.append(contentsOf: repoList)
         view?.hideProgressHUD()
         view?.clearSpinnerView()
         view?.reloadTableView()
@@ -94,7 +94,10 @@ extension UserDetailPresenter: IUserDetailInteractorToPresenter {
         currentPage += 1
     }
 
-    func noMoreRepoFound() {
+    func noRepoFound() {
+        view?.showErrorDialog(with: Constants.Error.noRepoFound)
+        userRepos = [Repository]()
+        view?.reloadTableView()
         view?.clearSpinnerView()
     }
 }

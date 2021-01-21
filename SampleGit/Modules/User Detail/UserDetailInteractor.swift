@@ -38,7 +38,7 @@ extension UserDetailInteractor: IUserDetailInteractor {
         })
     }
 
-    func retrieveUserRepositories(with userName: String, pageNumber: Int) {
+    func retrieveUserRepositories(with userName: String, pageNumber: Int, calledFromScroll: Bool) {
         if !isAlreadyFetchingRepos {
             let itemCountPerPage = Constants.UserDetails.filteredItemCountPerPage
             isAlreadyFetchingRepos = true
@@ -48,8 +48,8 @@ extension UserDetailInteractor: IUserDetailInteractor {
                                      onSuccess: { [weak self] response in
                 guard let self = self else { return }
                     if let userRepos = response.results {
-                        if userRepos.isEmpty {
-                            self.output?.noMoreRepoFound()
+                        if userRepos.isEmpty, !calledFromScroll {
+                            self.output?.noRepoFound()
                         } else {
                             self.output?.increaseCurrentPage()
                             self.output?.userReposRecieved(userRepos)

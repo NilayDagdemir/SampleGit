@@ -46,7 +46,7 @@ class Constants {
         static let repositoriesSectionTitle: String = "Repositories"
 
         // MARK: GitHub API Search Parameter
-        static let filteredItemCountPerPage: Int = 35
+        static let filteredItemCountPerPage: Int = 10
     }
 
     // MARK: UserDetailTableViewCellTypes

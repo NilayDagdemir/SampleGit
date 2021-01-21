@@ -22,7 +22,7 @@ extension SearchRepositoriesInteractor: ISearchRepositoriesInteractor {
         return isAlreadyFetchingRepos
     }
 
-    func searchRepos(with searchText: String, pageNumber: Int) {
+    func searchRepos(with searchText: String, pageNumber: Int, calledFromScroll: Bool) {
         if !isAlreadyFetchingRepos {
             isAlreadyFetchingRepos = true
             let itemCountPerPage = Constants.SearchRepositories.filteredItemCountPerPage
@@ -32,8 +32,8 @@ extension SearchRepositoriesInteractor: ISearchRepositoriesInteractor {
                                            onSuccess: { [weak self] response in
                 guard let self = self else { return }
                 if let filteredList = response.results?.items {
-                    if filteredList.isEmpty {
-                        self.output?.noMoreRepoFound()
+                    if filteredList.isEmpty, !calledFromScroll {
+                        self.output?.noRepoFound()
                     } else {
                         self.output?.increaseCurrentPage()
                         self.output?.repoListFiltered(filteredList)

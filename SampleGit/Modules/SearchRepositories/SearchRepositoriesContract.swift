@@ -26,20 +26,20 @@ protocol ISearchRepositoriesPresenter: IBasePresenter {
     func itemExistsOnTableView() -> Bool
     func repoCardClicked(with repoItem: Repository)
     func avatarClicked(with userName: String)
-    func fetchData()
+    func fetchData(calledFromScroll: Bool) 
     func tableViewScrolled(with scrollPosition: CGFloat, _ scrollHeight: CGFloat) 
     func getIsAlreadyFetchingRepos() -> Bool
 }
 
 protocol ISearchRepositoriesInteractor: class {
-    func searchRepos(with searchText: String, pageNumber: Int)
+    func searchRepos(with searchText: String, pageNumber: Int, calledFromScroll: Bool)
     func getIsAlreadyFetchingRepos() -> Bool
 }
 
 protocol ISearchRepositoriesInteractorToPresenter: IBaseInteractorToPresenter {
     func repoListFiltered(_ repoList: [Repository])
     func increaseCurrentPage()
-    func noMoreRepoFound()
+    func noRepoFound()
 }
 
 protocol ISearchRepositoriesRouter: class {

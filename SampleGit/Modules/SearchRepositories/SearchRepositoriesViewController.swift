@@ -67,7 +67,7 @@ extension SearchRepositoriesViewController: ISearchRepositoriesView {
         if scrollPosition > (filteredRepositoriesTableView.contentSize.height - 100 - scrollHeight),
             presenter?.itemExistsOnTableView() ?? false {
             filteredRepositoriesTableView.addFooterSpinner()
-            presenter?.fetchData()
+            presenter?.fetchData(calledFromScroll: true)
         }
     }
 

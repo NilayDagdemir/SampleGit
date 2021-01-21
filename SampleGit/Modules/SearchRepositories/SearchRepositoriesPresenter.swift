@@ -29,7 +29,7 @@ extension SearchRepositoriesPresenter: ISearchRepositoriesPresenter {
         currentPage = 1
         if searchText != "" {
             latestSearchText = searchText
-            fetchData()
+            fetchData(calledFromScroll: false)
         }
     }
 
@@ -49,10 +49,10 @@ extension SearchRepositoriesPresenter: ISearchRepositoriesPresenter {
         router?.navigateToUserDetailScreen(with: userName)
     }
 
-    func fetchData() {
+    func fetchData(calledFromScroll: Bool) {
         if latestSearchText != "" {
             interactor?.searchRepos(with: latestSearchText,
-                                    pageNumber: currentPage)
+                                    pageNumber: currentPage, calledFromScroll: calledFromScroll)
         }
     }
 
@@ -72,7 +72,7 @@ extension SearchRepositoriesPresenter: ISearchRepositoriesInteractorToPresenter 
     }
 
     func repoListFiltered(_ repoList: [Repository]) {
-        self.filteredRepos.append(contentsOf: repoList)
+        filteredRepos.append(contentsOf: repoList)
         view?.hideProgressHUD()
         view?.clearSpinnerView()
         view?.reloadTableView()
@@ -85,7 +85,10 @@ extension SearchRepositoriesPresenter: ISearchRepositoriesInteractorToPresenter 
         currentPage += 1
     }
 
-    func noMoreRepoFound() {
+    func noRepoFound() {
+        view?.showErrorDialog(with: Constants.Error.noRepoFound)
+        filteredRepos = [Repository]()
+        view?.reloadTableView()
         view?.clearSpinnerView()
     }
 }
