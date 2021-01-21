@@ -64,9 +64,9 @@ extension SearchRepositoriesViewController: ISearchRepositoriesView {
     }
 
     func scrollViewScrolled(with scrollPosition: CGFloat, _ scrollHeight: CGFloat) {
-        filteredRepositoriesTableView.addFooterSpinner()
         if scrollPosition > (filteredRepositoriesTableView.contentSize.height - 100 - scrollHeight),
             presenter?.itemExistsOnTableView() ?? false {
+            filteredRepositoriesTableView.addFooterSpinner()
             presenter?.fetchData()
         }
     }

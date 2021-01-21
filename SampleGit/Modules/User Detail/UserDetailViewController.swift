@@ -42,9 +42,9 @@ extension UserDetailViewController: IUserDetailView {
     }
 
     func scrollViewScrolled(with scrollPosition: CGFloat, _ scrollHeight: CGFloat) {
-        userDetailTableView.addFooterSpinner()
         if scrollPosition > (userDetailTableView.contentSize.height - 100 - scrollHeight),
             presenter?.itemExistsOnTableView() ?? false {
+            userDetailTableView.addFooterSpinner()
             presenter?.fetchUserRepos()
         }
     }

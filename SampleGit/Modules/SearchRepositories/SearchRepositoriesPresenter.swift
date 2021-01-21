@@ -29,7 +29,6 @@ extension SearchRepositoriesPresenter: ISearchRepositoriesPresenter {
         currentPage = 1
         if searchText != "" {
             latestSearchText = searchText
-            interactor?.setItemCountPerPage(with: Constants.SearchRepositories.filteredItemCountPerPage)
             fetchData()
         }
     }

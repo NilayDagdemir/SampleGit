@@ -15,14 +15,9 @@ class SearchRepositoriesInteractor {
     var networkAPI: APIClientInterface?
 
     private var isAlreadyFetchingRepos: Bool = false
-    private var itemCountPerPage: Int = 0
 }
 
 extension SearchRepositoriesInteractor: ISearchRepositoriesInteractor {
-    func setItemCountPerPage(with perPage: Int) {
-        itemCountPerPage = perPage
-    }
-
     func getIsAlreadyFetchingRepos() -> Bool {
         return isAlreadyFetchingRepos
     }
@@ -30,6 +25,7 @@ extension SearchRepositoriesInteractor: ISearchRepositoriesInteractor {
     func searchRepos(with searchText: String, pageNumber: Int) {
         if !isAlreadyFetchingRepos {
             isAlreadyFetchingRepos = true
+            let itemCountPerPage = Constants.SearchRepositories.filteredItemCountPerPage
             networkAPI?.searchRepositories(with: searchText,
                                            itemCountPerPage,
                                            pageNumber,
@@ -37,13 +33,7 @@ extension SearchRepositoriesInteractor: ISearchRepositoriesInteractor {
                 guard let self = self else { return }
                 if let filteredList = response.results?.items {
                     if filteredList.isEmpty {
-                        if self.itemCountPerPage != 0 {
-                            self.isAlreadyFetchingRepos = false
-                            self.itemCountPerPage -= 1
-                            self.searchRepos(with: searchText, pageNumber: pageNumber)
-                        } else {
-                            self.output?.noMoreRepoFound()
-                        }
+                        self.output?.noMoreRepoFound()
                     } else {
                         self.output?.increaseCurrentPage()
                         self.output?.repoListFiltered(filteredList)

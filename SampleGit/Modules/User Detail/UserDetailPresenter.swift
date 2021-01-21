@@ -26,7 +26,7 @@ extension UserDetailPresenter: IUserDetailPresenter {
         view?.showProgressHUD()
         if let userName = userName {
             interactor?.retrieveUserDetails(with: userName)
-            interactor?.setItemCountPerPage(with: Constants.UserDetails.filteredItemCountPerPage)
+            print("here to retreive user repos 0")
             interactor?.retrieveUserRepositories(with: userName,
                                                  pageNumber: currentPage)
         }
@@ -50,6 +50,7 @@ extension UserDetailPresenter: IUserDetailPresenter {
 
     func fetchUserRepos() {
         if let userName = userName {
+            print("here to retreive user repos")
             interactor?.retrieveUserRepositories(with: userName,
                                                  pageNumber: currentPage)
         }

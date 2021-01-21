@@ -40,29 +40,24 @@ extension UserDetailInteractor: IUserDetailInteractor {
 
     func retrieveUserRepositories(with userName: String, pageNumber: Int) {
         if !isAlreadyFetchingRepos {
+            let itemCountPerPage = Constants.UserDetails.filteredItemCountPerPage
             isAlreadyFetchingRepos = true
             networkAPI?.getUserRepos(with: userName,
                                      itemCountPerPage,
                                      pageNumber,
                                      onSuccess: { [weak self] response in
                 guard let self = self else { return }
-                if let userRepos = response.results {
-                    if userRepos.isEmpty {
-                        if self.itemCountPerPage != 0 {
-                            self.isAlreadyFetchingRepos = false
-                            self.itemCountPerPage -= 1
-                            self.retrieveUserRepositories(with: userName, pageNumber: pageNumber)
-                        } else {
+                    if let userRepos = response.results {
+                        if userRepos.isEmpty {
                             self.output?.noMoreRepoFound()
+                        } else {
+                            self.output?.increaseCurrentPage()
+                            self.output?.userReposRecieved(userRepos)
                         }
                     } else {
-                        self.output?.increaseCurrentPage()
-                        self.output?.userReposRecieved(userRepos)
+                        self.output?.wsErrorOccurred(with: Constants.Error.defaultErrorMessage)
                     }
-                } else {
-                    self.output?.wsErrorOccurred(with: Constants.Error.defaultErrorMessage)
-                }
-                self.isAlreadyFetchingRepos = false
+                    self.isAlreadyFetchingRepos = false
             })
         }
     }
