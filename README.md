@@ -1,6 +1,6 @@
 # SampleGit
 
-An iOS Application written in Swift for non-commercial purposes. This app uses Github API, for more information about the API kindly visit https://docs.github.com/en/rest/reference
+An iOS Application written in Swift for listing git repos. This app uses Github API, for more information about the API kindly visit https://docs.github.com/en/rest/reference
 
 This project uses swift package manager. Hence, after you clone the repository or download the zip to open the project, you may need to run "Resolve Swift Packages" command on XCode in order to install package dependencies.
 
